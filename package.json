@@ -1,42 +1,3 @@
-# ng-bootstrap-tsickle-build
-A tsickled-ES6 distribution of ng-bootstrap
-
-Steps to build:
-- clone ng-bootstrap, and cd into it
-- `npm install tsickle`
-- add the following tsconfig.json file in the src folder:
-```
-{
-  "compilerOptions": {
-    "target": "es6",
-    "module": "es2015",
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "baseUrl": ".",
-    "stripInternal": true,
-    "outDir": "../tmp/ng-bootstrap",
-    "rootDir": ".",
-    "sourceMap": true,
-    "inlineSources": true,
-    "skipLibCheck": true,
-    "lib": ["es2015", "dom"]
-  },
-  "files": [
-    "./index.ts"
-  ],
-  "angularCompilerOptions": {
-    "annotationsAs": "static fields",
-    "annotateForClosureCompiler": true
-  }
-}
-
-```
-- `./node_modules/.bin/ngc -p src --declaration`
-- `./node_modules/.bin/tsickle -- -p src`
-- copy the content of tmp/ng-bootstrap to here
-- create package.json as follows:
-```
 {
   "_args": [
     [
@@ -131,4 +92,3 @@ Steps to build:
   "typings": "index.d.ts",
   "version": "1.0.0-alpha.19"
 }
-```

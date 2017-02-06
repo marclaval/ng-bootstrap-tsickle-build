@@ -1,4 +1,4 @@
-goog.module('tmp.ng_bootstrap.datepicker.ngb_date'); exports = {}; var module = {id: 'tmp/ng-bootstrap/datepicker/ngb-date.js'};export class NgbDate {
+goog.module('_ng_bootstrap.ng_bootstrap.datepicker.ngb_date'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/datepicker/ngb-date.js'};export class NgbDate {
     /**
      * @param {number} year
      * @param {number} month

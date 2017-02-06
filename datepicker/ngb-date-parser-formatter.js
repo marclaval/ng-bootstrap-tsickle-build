@@ -1,4 +1,4 @@
-goog.module('tmp.ng_bootstrap.datepicker.ngb_date_parser_formatter'); exports = {}; var module = {id: 'tmp/ng-bootstrap/datepicker/ngb-date-parser-formatter.js'};import { padNumber, toInteger, isNumber } from '../util/util';
+goog.module('_ng_bootstrap.ng_bootstrap.datepicker.ngb_date_parser_formatter'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/datepicker/ngb-date-parser-formatter.js'};import { padNumber, toInteger, isNumber } from '../util/util';
 const padNumber = padNumber; /* local alias for Closure JSDoc */
 const toInteger = toInteger; /* local alias for Closure JSDoc */
 const isNumber = isNumber; /* local alias for Closure JSDoc */

@@ -1,4 +1,4 @@
-goog.module('tmp.ng_bootstrap.datepicker.datepicker_view_model'); exports = {}; var module = {id: 'tmp/ng-bootstrap/datepicker/datepicker-view-model.js'};import { NgbDate } from './ngb-date';
+goog.module('_ng_bootstrap.ng_bootstrap.datepicker.datepicker_view_model'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/datepicker/datepicker-view-model.js'};import { NgbDate } from './ngb-date';
 const NgbDate = NgbDate; /* local alias for Closure JSDoc */
 /** @typedef {{date: !NgbDate, disabled: boolean}} */
 exports.DayViewModel;

@@ -1,4 +1,4 @@
-goog.module('tmp.ng_bootstrap.modal.modal_dismiss_reasons'); exports = {}; var module = {id: 'tmp/ng-bootstrap/modal/modal-dismiss-reasons.js'};export let ModalDismissReasons = {};
+goog.module('_ng_bootstrap.ng_bootstrap.modal.modal_dismiss_reasons'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/modal/modal-dismiss-reasons.js'};export let ModalDismissReasons = {};
 /** @type {number} */
 ModalDismissReasons.BACKDROP_CLICK = 0;
 /** @type {number} */

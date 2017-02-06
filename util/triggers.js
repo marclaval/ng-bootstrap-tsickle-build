@@ -1,4 +1,4 @@
-goog.module('tmp.ng_bootstrap.util.triggers'); exports = {}; var module = {id: 'tmp/ng-bootstrap/util/triggers.js'};export class Trigger {
+goog.module('_ng_bootstrap.ng_bootstrap.util.triggers'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/util/triggers.js'};export class Trigger {
     /**
      * @param {string} open
      * @param {string=} close

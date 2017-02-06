@@ -1,4 +1,4 @@
-goog.module('tmp.ng_bootstrap.timepicker.ngb_time'); exports = {}; var module = {id: 'tmp/ng-bootstrap/timepicker/ngb-time.js'};import { isNumber, toInteger } from '../util/util';
+goog.module('_ng_bootstrap.ng_bootstrap.timepicker.ngb_time'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time.js'};import { isNumber, toInteger } from '../util/util';
 const isNumber = isNumber; /* local alias for Closure JSDoc */
 const toInteger = toInteger; /* local alias for Closure JSDoc */
 export class NgbTime {

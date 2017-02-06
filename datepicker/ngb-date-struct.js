@@ -1,4 +1,4 @@
-goog.module('tmp.ng_bootstrap.datepicker.ngb_date_struct'); exports = {}; var module = {id: 'tmp/ng-bootstrap/datepicker/ngb-date-struct.js'};/** @record */
+goog.module('_ng_bootstrap.ng_bootstrap.datepicker.ngb_date_struct'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/datepicker/ngb-date-struct.js'};/** @record */
 export function NgbDateStruct() { }
 /**
  * The year, for example 2016

@@ -1,4 +1,4 @@
-goog.module('tmp.ng_bootstrap.util.positioning'); exports = {}; var module = {id: 'tmp/ng-bootstrap/util/positioning.js'};export class Positioning {
+goog.module('_ng_bootstrap.ng_bootstrap.util.positioning'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/util/positioning.js'};export class Positioning {
     /**
      * @param {!HTMLElement} element
      * @param {string} prop

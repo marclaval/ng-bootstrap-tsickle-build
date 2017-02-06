@@ -1,4 +1,4 @@
-goog.module('tmp.ng_bootstrap.datepicker.datepicker_day_template_context'); exports = {}; var module = {id: 'tmp/ng-bootstrap/datepicker/datepicker-day-template-context.js'};import { NgbDateStruct } from './ngb-date-struct';
+goog.module('_ng_bootstrap.ng_bootstrap.datepicker.datepicker_day_template_context'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/datepicker/datepicker-day-template-context.js'};import { NgbDateStruct } from './ngb-date-struct';
 const NgbDateStruct = NgbDateStruct; /* local alias for Closure JSDoc */
 /** @record */
 export function DayTemplateContext() { }

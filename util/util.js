@@ -1,4 +1,4 @@
-goog.module('tmp.ng_bootstrap.util.util'); exports = {}; var module = {id: 'tmp/ng-bootstrap/util/util.js'};/**
+goog.module('_ng_bootstrap.ng_bootstrap.util.util'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/util/util.js'};/**
  * @param {?} value
  * @return {number}
  */

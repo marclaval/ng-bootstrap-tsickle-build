@@ -1,4 +1,4 @@
-goog.module('tmp.ng_bootstrap.util.popup'); exports = {}; var module = {id: 'tmp/ng-bootstrap/util/popup.js'};import { Injector, TemplateRef, ViewRef, ViewContainerRef, Renderer, ComponentRef, ComponentFactory, ComponentFactoryResolver } from '@angular/core';
+goog.module('_ng_bootstrap.ng_bootstrap.util.popup'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/util/popup.js'};import { Injector, TemplateRef, ViewRef, ViewContainerRef, Renderer, ComponentRef, ComponentFactory, ComponentFactoryResolver } from '@angular/core';
 const Injector = Injector; /* local alias for Closure JSDoc */
 const TemplateRef = TemplateRef; /* local alias for Closure JSDoc */
 const ViewRef = ViewRef; /* local alias for Closure JSDoc */

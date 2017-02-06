@@ -1,4 +1,4 @@
-goog.module('tmp.ng_bootstrap.timepicker.ngb_time_struct'); exports = {}; var module = {id: 'tmp/ng-bootstrap/timepicker/ngb-time-struct.js'};/** @record */
+goog.module('_ng_bootstrap.ng_bootstrap.timepicker.ngb_time_struct'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time-struct.js'};/** @record */
 export function NgbTimeStruct() { }
 /**
  * The hour, going from 0 to 23

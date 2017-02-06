@@ -1,9 +1,4 @@
-goog.module('_ng_bootstrap.ng_bootstrap.datepicker.ngb_date_parser_formatter'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/datepicker/ngb-date-parser-formatter.js'};import { padNumber, toInteger, isNumber } from '../util/util';
-const padNumber = padNumber; /* local alias for Closure JSDoc */
-const toInteger = toInteger; /* local alias for Closure JSDoc */
-const isNumber = isNumber; /* local alias for Closure JSDoc */
-import { NgbDateStruct } from './ngb-date-struct';
-const NgbDateStruct = NgbDateStruct; /* local alias for Closure JSDoc */
+import { padNumber, toInteger, isNumber } from '../util/util';
 /**
  * Abstract type serving as a DI token for the service parsing and formatting dates for the NgbInputDatepicker
  * directive. A default implementation using the ISO 8601 format is provided, but you can provide another implementation
@@ -15,27 +10,27 @@ export class NgbDateParserFormatter {
      * Parses the given value to an NgbDateStruct. Implementations should try their best to provide a result, even
      * partial. They must return null if the value can't be parsed.
      * @abstract
-     * @param {string} value the value to parse
-     * @return {!NgbDateStruct}
+     * @param {?} value the value to parse
+     * @return {?}
      */
     parse(value) { }
     /**
      * Formats the given date to a string. Implementations should return an empty string if the given date is null,
      * and try their best to provide a partial result if the given date is incomplete or invalid.
      * @abstract
-     * @param {!NgbDateStruct} date the date to format as a string
-     * @return {string}
+     * @param {?} date the date to format as a string
+     * @return {?}
      */
     format(date) { }
 }
 export class NgbDateISOParserFormatter extends NgbDateParserFormatter {
     /**
-     * @param {string} value
-     * @return {!NgbDateStruct}
+     * @param {?} value
+     * @return {?}
      */
     parse(value) {
         if (value) {
-            const /** @type {!Array<string>} */ dateParts = value.trim().split('-');
+            const /** @type {?} */ dateParts = value.trim().split('-');
             if (dateParts.length === 1 && isNumber(dateParts[0])) {
                 return { year: toInteger(dateParts[0]), month: null, day: null };
             }
@@ -49,8 +44,8 @@ export class NgbDateISOParserFormatter extends NgbDateParserFormatter {
         return null;
     }
     /**
-     * @param {!NgbDateStruct} date
-     * @return {string}
+     * @param {?} date
+     * @return {?}
      */
     format(date) {
         return date ?

@@ -1,4 +1,4 @@
-import { OnChanges, SimpleChanges } from '@angular/core';
+import { OnChanges, SimpleChanges } from '@angular/core/index';
 export declare class NgbHighlight implements OnChanges {
     parts: string[];
     highlightClass: string;

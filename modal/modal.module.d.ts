@@ -1,4 +1,4 @@
-import { ModuleWithProviders } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core/index';
 export { NgbModal, NgbModalOptions } from './modal';
 export { NgbModalRef, NgbActiveModal } from './modal-ref';
 export { ModalDismissReasons } from './modal-dismiss-reasons';

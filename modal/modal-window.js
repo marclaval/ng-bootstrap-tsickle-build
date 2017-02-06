@@ -1,28 +1,9 @@
-goog.module('_ng_bootstrap.ng_bootstrap.modal.modal_window'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/modal/modal-window.js'};var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { Component, Output, EventEmitter, Input, ElementRef, Renderer, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
-const Component = Component; /* local alias for Closure JSDoc */
-const Output = Output; /* local alias for Closure JSDoc */
-const EventEmitter = EventEmitter; /* local alias for Closure JSDoc */
-const Input = Input; /* local alias for Closure JSDoc */
-const ElementRef = ElementRef; /* local alias for Closure JSDoc */
-const Renderer = Renderer; /* local alias for Closure JSDoc */
-const OnInit = OnInit; /* local alias for Closure JSDoc */
-const AfterViewInit = AfterViewInit; /* local alias for Closure JSDoc */
-const OnDestroy = OnDestroy; /* local alias for Closure JSDoc */
+import { Component, Output, EventEmitter, Input, ElementRef, Renderer } from '@angular/core/index';
 import { ModalDismissReasons } from './modal-dismiss-reasons';
-const ModalDismissReasons = ModalDismissReasons; /* local alias for Closure JSDoc */
-export let NgbModalWindow = class NgbModalWindow {
+export class NgbModalWindow {
     /**
-     * @param {!ElementRef} _elRef
-     * @param {!Renderer} _renderer
+     * @param {?} _elRef
+     * @param {?} _renderer
      */
     constructor(_elRef, _renderer) {
         this._elRef = _elRef;
@@ -33,7 +14,7 @@ export let NgbModalWindow = class NgbModalWindow {
     }
     /**
      * @param {?} $event
-     * @return {void}
+     * @return {?}
      */
     backdropClick($event) {
         if (this.backdrop === true && this._elRef.nativeElement === $event.target) {
@@ -42,7 +23,7 @@ export let NgbModalWindow = class NgbModalWindow {
     }
     /**
      * @param {?} $event
-     * @return {void}
+     * @return {?}
      */
     escKey($event) {
         if (this.keyboard && !$event.defaultPrevented) {
@@ -51,18 +32,18 @@ export let NgbModalWindow = class NgbModalWindow {
     }
     /**
      * @param {?} reason
-     * @return {void}
+     * @return {?}
      */
     dismiss(reason) { this.dismissEvent.emit(reason); }
     /**
-     * @return {void}
+     * @return {?}
      */
     ngOnInit() {
         this._elWithFocus = document.activeElement;
         this._renderer.setElementClass(document.body, 'modal-open', true);
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     ngAfterViewInit() {
         if (!this._elRef.nativeElement.contains(document.activeElement)) {
@@ -70,7 +51,7 @@ export let NgbModalWindow = class NgbModalWindow {
         }
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     ngOnDestroy() {
         if (this._elWithFocus && document.body.contains(this._elWithFocus)) {
@@ -82,63 +63,62 @@ export let NgbModalWindow = class NgbModalWindow {
         this._elWithFocus = null;
         this._renderer.setElementClass(document.body, 'modal-open', false);
     }
-};
-__decorate([
-    // element that is focused prior to modal opening
-    Input(), 
-    __metadata('design:type', Object)
-], NgbModalWindow.prototype, "backdrop", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbModalWindow.prototype, "keyboard", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', String)
-], NgbModalWindow.prototype, "size", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', String)
-], NgbModalWindow.prototype, "windowClass", void 0);
-__decorate([
-    Output('dismiss'), 
-    __metadata('design:type', Object)
-], NgbModalWindow.prototype, "dismissEvent", void 0);
-NgbModalWindow = __decorate([
-    /* local alias for Closure JSDoc */ Component({
-        selector: 'ngb-modal-window',
-        host: {
-            '[class]': '"modal fade show" + (windowClass ? " " + windowClass : "")',
-            'role': 'dialog',
-            'tabindex': '-1',
-            'style': 'display: block;',
-            '(keyup.esc)': 'escKey($event)',
-            '(click)': 'backdropClick($event)'
-        },
-        template: `
+}
+NgbModalWindow.decorators = [
+    { type: Component, args: [{
+                selector: 'ngb-modal-window',
+                host: {
+                    '[class]': '"modal fade show" + (windowClass ? " " + windowClass : "")',
+                    'role': 'dialog',
+                    'tabindex': '-1',
+                    'style': 'display: block;',
+                    '(keyup.esc)': 'escKey($event)',
+                    '(click)': 'backdropClick($event)'
+                },
+                template: `
     <div [class]="'modal-dialog' + (size ? ' modal-' + size : '')" role="document">
         <div class="modal-content"><ng-content></ng-content></div>
     </div>
     `
-    }), 
-    __metadata('design:paramtypes', [Object, Object])
-], NgbModalWindow);
+            },] },
+];
+/** @nocollapse */
+NgbModalWindow.ctorParameters = () => [
+    { type: ElementRef, },
+    { type: Renderer, },
+];
+NgbModalWindow.propDecorators = {
+    'backdrop': [{ type: Input },],
+    'keyboard': [{ type: Input },],
+    'size': [{ type: Input },],
+    'windowClass': [{ type: Input },],
+    'dismissEvent': [{ type: Output, args: ['dismiss',] },],
+};
 function NgbModalWindow_tsickle_Closure_declarations() {
-    /** @type {!Element} */
+    /** @type {?} */
+    NgbModalWindow.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbModalWindow.ctorParameters;
+    /** @type {?} */
+    NgbModalWindow.propDecorators;
+    /** @type {?} */
     NgbModalWindow.prototype._elWithFocus;
-    /** @type {(string|boolean)} */
+    /** @type {?} */
     NgbModalWindow.prototype.backdrop;
-    /** @type {boolean} */
+    /** @type {?} */
     NgbModalWindow.prototype.keyboard;
-    /** @type {string} */
+    /** @type {?} */
     NgbModalWindow.prototype.size;
-    /** @type {string} */
+    /** @type {?} */
     NgbModalWindow.prototype.windowClass;
-    /** @type {!EventEmitter<?>} */
+    /** @type {?} */
     NgbModalWindow.prototype.dismissEvent;
-    /** @type {!ElementRef} */
+    /** @type {?} */
     NgbModalWindow.prototype._elRef;
-    /** @type {!Renderer} */
+    /** @type {?} */
     NgbModalWindow.prototype._renderer;
 }
 //# sourceMappingURL=modal-window.js.map

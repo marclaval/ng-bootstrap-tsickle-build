@@ -1,4 +1,4 @@
-import { EventEmitter, TemplateRef, OnInit } from '@angular/core';
+import { EventEmitter, TemplateRef, OnInit } from '@angular/core/index';
 import { toString } from '../util/util';
 /**
  * Context for the typeahead result template in case you want to override the default one

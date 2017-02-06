@@ -1,45 +1,13 @@
-goog.module('_ng_bootstrap.ng_bootstrap.rating.rating'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/rating/rating.js'};var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, OnInit, TemplateRef, OnChanges, SimpleChanges, ContentChild, forwardRef, ChangeDetectorRef } from '@angular/core';
-const Component = Component; /* local alias for Closure JSDoc */
-const ChangeDetectionStrategy = ChangeDetectionStrategy; /* local alias for Closure JSDoc */
-const Input = Input; /* local alias for Closure JSDoc */
-const Output = Output; /* local alias for Closure JSDoc */
-const EventEmitter = EventEmitter; /* local alias for Closure JSDoc */
-const OnInit = OnInit; /* local alias for Closure JSDoc */
-const TemplateRef = TemplateRef; /* local alias for Closure JSDoc */
-const OnChanges = OnChanges; /* local alias for Closure JSDoc */
-const SimpleChanges = SimpleChanges; /* local alias for Closure JSDoc */
-const ContentChild = ContentChild; /* local alias for Closure JSDoc */
-const forwardRef = forwardRef; /* local alias for Closure JSDoc */
-const ChangeDetectorRef = ChangeDetectorRef; /* local alias for Closure JSDoc */
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, TemplateRef, ContentChild, forwardRef, ChangeDetectorRef } from '@angular/core/index';
 import { NgbRatingConfig } from './rating-config';
-const NgbRatingConfig = NgbRatingConfig; /* local alias for Closure JSDoc */
 import { toString, getValueInRange } from '../util/util';
-const toString = toString; /* local alias for Closure JSDoc */
-const getValueInRange = getValueInRange; /* local alias for Closure JSDoc */
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-const ControlValueAccessor = ControlValueAccessor; /* local alias for Closure JSDoc */
-const NG_VALUE_ACCESSOR = NG_VALUE_ACCESSOR; /* local alias for Closure JSDoc */
+import { NG_VALUE_ACCESSOR } from '@angular/forms/index';
 let Key = {};
-/** @type {number} */
 Key.End = 35;
-/** @type {number} */
 Key.Home = 36;
-/** @type {number} */
 Key.ArrowLeft = 37;
-/** @type {number} */
 Key.ArrowUp = 38;
-/** @type {number} */
 Key.ArrowRight = 39;
-/** @type {number} */
 Key.ArrowDown = 40;
 Key[Key.End] = "End";
 Key[Key.Home] = "Home";
@@ -47,13 +15,6 @@ Key[Key.ArrowLeft] = "ArrowLeft";
 Key[Key.ArrowUp] = "ArrowUp";
 Key[Key.ArrowRight] = "ArrowRight";
 Key[Key.ArrowDown] = "ArrowDown";
-/** @record */
-export function StarTemplateContext() { }
-/**
- * Star fill percentage. An integer value between 0 and 100
- * @type {number}
- */
-StarTemplateContext.prototype.fill;
 const /** @type {?} */ NGB_RATING_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => NgbRating),
@@ -62,10 +23,10 @@ const /** @type {?} */ NGB_RATING_VALUE_ACCESSOR = {
 /**
  * Rating directive that will take care of visualising a star rating bar.
  */
-export let NgbRating = class NgbRating {
+export class NgbRating {
     /**
-     * @param {!NgbRatingConfig} config
-     * @param {!ChangeDetectorRef} _changeDetectorRef
+     * @param {?} config
+     * @param {?} _changeDetectorRef
      */
     constructor(config, _changeDetectorRef) {
         this._changeDetectorRef = _changeDetectorRef;
@@ -91,12 +52,12 @@ export let NgbRating = class NgbRating {
         this.readonly = config.readonly;
     }
     /**
-     * @return {string}
+     * @return {?}
      */
     ariaValueText() { return `${this.rate} out of ${this.max}`; }
     /**
-     * @param {number} value
-     * @return {void}
+     * @param {?} value
+     * @return {?}
      */
     enter(value) {
         if (!this.readonly) {
@@ -105,8 +66,8 @@ export let NgbRating = class NgbRating {
         this.hover.emit(value);
     }
     /**
-     * @param {!KeyboardEvent} event
-     * @return {void}
+     * @param {?} event
+     * @return {?}
      */
     handleKeyDown(event) {
         if (Key[toString(event.which)]) {
@@ -130,11 +91,11 @@ export let NgbRating = class NgbRating {
         }
     }
     /**
-     * @param {number} index
-     * @return {number}
+     * @param {?} index
+     * @return {?}
      */
     getFillValue(index) {
-        const /** @type {number} */ diff = this.rate - index;
+        const /** @type {?} */ diff = this.rate - index;
         if (diff >= 1) {
             return 100;
         }
@@ -144,8 +105,8 @@ export let NgbRating = class NgbRating {
         return 0;
     }
     /**
-     * @param {!SimpleChanges} changes
-     * @return {void}
+     * @param {?} changes
+     * @return {?}
      */
     ngOnChanges(changes) {
         if (changes['rate']) {
@@ -154,34 +115,34 @@ export let NgbRating = class NgbRating {
         }
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     ngOnInit() { this.range = Array.from({ length: this.max }, (v, k) => k + 1); }
     /**
-     * @param {function(?): ?} fn
-     * @return {void}
+     * @param {?} fn
+     * @return {?}
      */
     registerOnChange(fn) { this.onChange = fn; }
     /**
-     * @param {function(): ?} fn
-     * @return {void}
+     * @param {?} fn
+     * @return {?}
      */
     registerOnTouched(fn) { this.onTouched = fn; }
     /**
-     * @return {void}
+     * @return {?}
      */
     reset() {
         this.leave.emit(this.rate);
         this.rate = this._oldRate;
     }
     /**
-     * @param {number} value
-     * @param {boolean=} internalChange
-     * @return {void}
+     * @param {?} value
+     * @param {?=} internalChange
+     * @return {?}
      */
     update(value, internalChange = true) {
         if (!this.readonly) {
-            const /** @type {number} */ newRate = value ? getValueInRange(value, this.max, 0) : 0;
+            const /** @type {?} */ newRate = value ? getValueInRange(value, this.max, 0) : 0;
             if (this._oldRate !== newRate) {
                 this._oldRate = newRate;
                 this.rate = newRate;
@@ -194,48 +155,19 @@ export let NgbRating = class NgbRating {
     }
     /**
      * @param {?} value
-     * @return {void}
+     * @return {?}
      */
     writeValue(value) {
         this.update(value, false);
         this._changeDetectorRef.markForCheck();
     }
-};
-__decorate([
-    Input(), 
-    __metadata('design:type', Number)
-], NgbRating.prototype, "max", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Number)
-], NgbRating.prototype, "rate", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbRating.prototype, "readonly", void 0);
-__decorate([
-    Input(),
-    ContentChild(TemplateRef), 
-    __metadata('design:type', Object)
-], NgbRating.prototype, "starTemplate", void 0);
-__decorate([
-    Output(), 
-    __metadata('design:type', Object)
-], NgbRating.prototype, "hover", void 0);
-__decorate([
-    Output(), 
-    __metadata('design:type', Object)
-], NgbRating.prototype, "leave", void 0);
-__decorate([
-    Output(), 
-    __metadata('design:type', Object)
-], NgbRating.prototype, "rateChange", void 0);
-NgbRating = __decorate([
-    Component({
-        selector: 'ngb-rating',
-        changeDetection: ChangeDetectionStrategy.OnPush,
-        host: { '(keydown)': 'handleKeyDown($event)' },
-        template: `
+}
+NgbRating.decorators = [
+    { type: Component, args: [{
+                selector: 'ngb-rating',
+                changeDetection: ChangeDetectionStrategy.OnPush,
+                host: { '(keydown)': 'handleKeyDown($event)' },
+                template: `
     <template #t let-fill="fill">{{ fill === 100 ? '&#9733;' : '&#9734;' }}</template>
     <span tabindex="0" (mouseleave)="reset()" role="slider" aria-valuemin="0"
       [attr.aria-valuemax]="max" [attr.aria-valuenow]="rate" [attr.aria-valuetext]="ariaValueText()">
@@ -248,59 +180,81 @@ NgbRating = __decorate([
       </template>
     </span>
   `,
-        providers: [NGB_RATING_VALUE_ACCESSOR]
-    }), 
-    __metadata('design:paramtypes', [Object, Object])
-], NgbRating);
+                providers: [NGB_RATING_VALUE_ACCESSOR]
+            },] },
+];
+/** @nocollapse */
+NgbRating.ctorParameters = () => [
+    { type: NgbRatingConfig, },
+    { type: ChangeDetectorRef, },
+];
+NgbRating.propDecorators = {
+    'max': [{ type: Input },],
+    'rate': [{ type: Input },],
+    'readonly': [{ type: Input },],
+    'starTemplate': [{ type: Input }, { type: ContentChild, args: [TemplateRef,] },],
+    'hover': [{ type: Output },],
+    'leave': [{ type: Output },],
+    'rateChange': [{ type: Output },],
+};
 function NgbRating_tsickle_Closure_declarations() {
-    /** @type {number} */
+    /** @type {?} */
+    NgbRating.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbRating.ctorParameters;
+    /** @type {?} */
+    NgbRating.propDecorators;
+    /** @type {?} */
     NgbRating.prototype._oldRate;
-    /** @type {!Array<number>} */
+    /** @type {?} */
     NgbRating.prototype.range;
     /**
      * Maximal rating that can be given using this widget.
-     * @type {number}
+     * @type {?}
      */
     NgbRating.prototype.max;
     /**
      * Current rating. Can be a decimal value like 3.75
-     * @type {number}
+     * @type {?}
      */
     NgbRating.prototype.rate;
     /**
      * A flag indicating if rating can be updated.
-     * @type {boolean}
+     * @type {?}
      */
     NgbRating.prototype.readonly;
     /**
      * A template to override star display.
      * Alternatively put a <template> as the only child of <ngb-rating> element
-     * @type {!TemplateRef<!StarTemplateContext>}
+     * @type {?}
      */
     NgbRating.prototype.starTemplate;
     /**
      * An event fired when a user is hovering over a given rating.
      * Event's payload equals to the rating being hovered over.
-     * @type {!EventEmitter<number>}
+     * @type {?}
      */
     NgbRating.prototype.hover;
     /**
      * An event fired when a user stops hovering over a given rating.
      * Event's payload equals to the rating of the last item being hovered over.
-     * @type {!EventEmitter<number>}
+     * @type {?}
      */
     NgbRating.prototype.leave;
     /**
      * An event fired when a user selects a new rating.
      * Event's payload equals to the newly selected rating.
-     * @type {!EventEmitter<number>}
+     * @type {?}
      */
     NgbRating.prototype.rateChange;
-    /** @type {function(?): void} */
+    /** @type {?} */
     NgbRating.prototype.onChange;
-    /** @type {function(): void} */
+    /** @type {?} */
     NgbRating.prototype.onTouched;
-    /** @type {!ChangeDetectorRef} */
+    /** @type {?} */
     NgbRating.prototype._changeDetectorRef;
 }
 //# sourceMappingURL=rating.js.map

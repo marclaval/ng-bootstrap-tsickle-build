@@ -1,31 +1,12 @@
-goog.module('_ng_bootstrap.ng_bootstrap.carousel.carousel'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/carousel/carousel.js'};var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { Component, Directive, TemplateRef, ContentChildren, QueryList, Input, OnDestroy, AfterContentChecked, OnInit } from '@angular/core';
-const Component = Component; /* local alias for Closure JSDoc */
-const Directive = Directive; /* local alias for Closure JSDoc */
-const TemplateRef = TemplateRef; /* local alias for Closure JSDoc */
-const ContentChildren = ContentChildren; /* local alias for Closure JSDoc */
-const QueryList = QueryList; /* local alias for Closure JSDoc */
-const Input = Input; /* local alias for Closure JSDoc */
-const OnDestroy = OnDestroy; /* local alias for Closure JSDoc */
-const AfterContentChecked = AfterContentChecked; /* local alias for Closure JSDoc */
-const OnInit = OnInit; /* local alias for Closure JSDoc */
+import { Component, Directive, TemplateRef, ContentChildren, Input } from '@angular/core/index';
 import { NgbCarouselConfig } from './carousel-config';
-const NgbCarouselConfig = NgbCarouselConfig; /* local alias for Closure JSDoc */
-let /** @type {number} */ nextId = 0;
+let /** @type {?} */ nextId = 0;
 /**
  * Represents an individual slide to be used within a carousel.
  */
-export let NgbSlide = class NgbSlide {
+export class NgbSlide {
     /**
-     * @param {!TemplateRef<?>} tplRef
+     * @param {?} tplRef
      */
     constructor(tplRef) {
         this.tplRef = tplRef;
@@ -35,31 +16,42 @@ export let NgbSlide = class NgbSlide {
          */
         this.id = `ngb-slide-${nextId++}`;
     }
+}
+NgbSlide.decorators = [
+    { type: Directive, args: [{ selector: 'template[ngbSlide]' },] },
+];
+/** @nocollapse */
+NgbSlide.ctorParameters = () => [
+    { type: TemplateRef, },
+];
+NgbSlide.propDecorators = {
+    'id': [{ type: Input },],
 };
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbSlide.prototype, "id", void 0);
-NgbSlide = __decorate([
-    Directive({ selector: 'template[ngbSlide]' }), 
-    __metadata('design:paramtypes', [Object])
-], NgbSlide);
 function NgbSlide_tsickle_Closure_declarations() {
+    /** @type {?} */
+    NgbSlide.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbSlide.ctorParameters;
+    /** @type {?} */
+    NgbSlide.propDecorators;
     /**
      * Unique slide identifier. Must be unique for the entire document for proper accessibility support.
      * Will be auto-generated if not provided.
-     * @type {string}
+     * @type {?}
      */
     NgbSlide.prototype.id;
-    /** @type {!TemplateRef<?>} */
+    /** @type {?} */
     NgbSlide.prototype.tplRef;
 }
 /**
  * Directive to easily create carousels based on Bootstrap's markup.
  */
-export let NgbCarousel = class NgbCarousel {
+export class NgbCarousel {
     /**
-     * @param {!NgbCarouselConfig} config
+     * @param {?} config
      */
     constructor(config) {
         this.interval = config.interval;
@@ -67,24 +59,24 @@ export let NgbCarousel = class NgbCarousel {
         this.keyboard = config.keyboard;
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     ngAfterContentChecked() {
-        let /** @type {!NgbSlide} */ activeSlide = this._getSlideById(this.activeId);
+        let /** @type {?} */ activeSlide = this._getSlideById(this.activeId);
         this.activeId = activeSlide ? activeSlide.id : (this.slides.length ? this.slides.first.id : null);
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     ngOnInit() { this._startTimer(); }
     /**
-     * @return {void}
+     * @return {?}
      */
     ngOnDestroy() { clearInterval(this._slideChangeInterval); }
     /**
      * Navigate to a slide with the specified identifier.
-     * @param {string} slideId
-     * @return {void}
+     * @param {?} slideId
+     * @return {?}
      */
     select(slideId) {
         this.cycleToSelected(slideId);
@@ -92,7 +84,7 @@ export let NgbCarousel = class NgbCarousel {
     }
     /**
      * Navigate to the next slide.
-     * @return {void}
+     * @return {?}
      */
     prev() {
         this.cycleToPrev();
@@ -100,7 +92,7 @@ export let NgbCarousel = class NgbCarousel {
     }
     /**
      * Navigate to the next slide.
-     * @return {void}
+     * @return {?}
      */
     next() {
         this.cycleToNext();
@@ -108,34 +100,34 @@ export let NgbCarousel = class NgbCarousel {
     }
     /**
      * Stops the carousel from cycling through items.
-     * @return {void}
+     * @return {?}
      */
     pause() { this._stopTimer(); }
     /**
      * Restarts cycling through the carousel slides from left to right.
-     * @return {void}
+     * @return {?}
      */
     cycle() { this._startTimer(); }
     /**
-     * @return {void}
+     * @return {?}
      */
     cycleToNext() { this.cycleToSelected(this._getNextSlide(this.activeId)); }
     /**
-     * @return {void}
+     * @return {?}
      */
     cycleToPrev() { this.cycleToSelected(this._getPrevSlide(this.activeId)); }
     /**
-     * @param {string} slideIdx
-     * @return {void}
+     * @param {?} slideIdx
+     * @return {?}
      */
     cycleToSelected(slideIdx) {
-        let /** @type {!NgbSlide} */ selectedSlide = this._getSlideById(slideIdx);
+        let /** @type {?} */ selectedSlide = this._getSlideById(slideIdx);
         if (selectedSlide) {
             this.activeId = selectedSlide.id;
         }
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     keyPrev() {
         if (this.keyboard) {
@@ -143,7 +135,7 @@ export let NgbCarousel = class NgbCarousel {
         }
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     keyNext() {
         if (this.keyboard) {
@@ -151,14 +143,14 @@ export let NgbCarousel = class NgbCarousel {
         }
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     _restartTimer() {
         this._stopTimer();
         this._startTimer();
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     _startTimer() {
         if (this.interval > 0) {
@@ -166,81 +158,61 @@ export let NgbCarousel = class NgbCarousel {
         }
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     _stopTimer() { clearInterval(this._slideChangeInterval); }
     /**
-     * @param {string} slideId
-     * @return {!NgbSlide}
+     * @param {?} slideId
+     * @return {?}
      */
     _getSlideById(slideId) {
-        let /** @type {!Array<!NgbSlide>} */ slideWithId = this.slides.filter(slide => slide.id === slideId);
+        let /** @type {?} */ slideWithId = this.slides.filter(slide => slide.id === slideId);
         return slideWithId.length ? slideWithId[0] : null;
     }
     /**
-     * @param {string} slideId
-     * @return {number}
+     * @param {?} slideId
+     * @return {?}
      */
     _getSlideIdxById(slideId) {
         return this.slides.toArray().indexOf(this._getSlideById(slideId));
     }
     /**
-     * @param {string} currentSlideId
-     * @return {string}
+     * @param {?} currentSlideId
+     * @return {?}
      */
     _getNextSlide(currentSlideId) {
-        const /** @type {!Array<!NgbSlide>} */ slideArr = this.slides.toArray();
-        const /** @type {number} */ currentSlideIdx = this._getSlideIdxById(currentSlideId);
-        const /** @type {boolean} */ isLastSlide = currentSlideIdx === slideArr.length - 1;
+        const /** @type {?} */ slideArr = this.slides.toArray();
+        const /** @type {?} */ currentSlideIdx = this._getSlideIdxById(currentSlideId);
+        const /** @type {?} */ isLastSlide = currentSlideIdx === slideArr.length - 1;
         return isLastSlide ? (this.wrap ? slideArr[0].id : slideArr[slideArr.length - 1].id) :
             slideArr[currentSlideIdx + 1].id;
     }
     /**
-     * @param {string} currentSlideId
-     * @return {string}
+     * @param {?} currentSlideId
+     * @return {?}
      */
     _getPrevSlide(currentSlideId) {
-        const /** @type {!Array<!NgbSlide>} */ slideArr = this.slides.toArray();
-        const /** @type {number} */ currentSlideIdx = this._getSlideIdxById(currentSlideId);
-        const /** @type {boolean} */ isFirstSlide = currentSlideIdx === 0;
+        const /** @type {?} */ slideArr = this.slides.toArray();
+        const /** @type {?} */ currentSlideIdx = this._getSlideIdxById(currentSlideId);
+        const /** @type {?} */ isFirstSlide = currentSlideIdx === 0;
         return isFirstSlide ? (this.wrap ? slideArr[slideArr.length - 1].id : slideArr[0].id) :
             slideArr[currentSlideIdx - 1].id;
     }
-};
-__decorate([
-    ContentChildren(NgbSlide), 
-    __metadata('design:type', Object)
-], NgbCarousel.prototype, "slides", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Number)
-], NgbCarousel.prototype, "interval", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbCarousel.prototype, "wrap", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbCarousel.prototype, "keyboard", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', String)
-], NgbCarousel.prototype, "activeId", void 0);
-NgbCarousel = __decorate([
-    Component({
-        selector: 'ngb-carousel',
-        exportAs: 'ngbCarousel',
-        host: {
-            'class': 'carousel slide',
-            '[style.display]': '"block"',
-            'tabIndex': '0',
-            '(mouseenter)': 'pause()',
-            '(mouseleave)': 'cycle()',
-            '(keydown.arrowLeft)': 'keyPrev()',
-            '(keydown.arrowRight)': 'keyNext()'
-        },
-        template: `
+}
+NgbCarousel.decorators = [
+    { type: Component, args: [{
+                selector: 'ngb-carousel',
+                exportAs: 'ngbCarousel',
+                host: {
+                    'class': 'carousel slide',
+                    '[style.display]': '"block"',
+                    'tabIndex': '0',
+                    '(mouseenter)': 'pause()',
+                    '(mouseleave)': 'cycle()',
+                    '(keydown.arrowLeft)': 'keyPrev()',
+                    '(keydown.arrowRight)': 'keyNext()'
+                },
+                template: `
     <ol class="carousel-indicators">
       <li *ngFor="let slide of slides" [id]="slide.id" [class.active]="slide.id === activeId" (click)="cycleToSelected(slide.id)"></li>
     </ol>
@@ -258,34 +230,53 @@ NgbCarousel = __decorate([
       <span class="sr-only">Next</span>
     </a>
     `
-    }), 
-    __metadata('design:paramtypes', [Object])
-], NgbCarousel);
+            },] },
+];
+/** @nocollapse */
+NgbCarousel.ctorParameters = () => [
+    { type: NgbCarouselConfig, },
+];
+NgbCarousel.propDecorators = {
+    'slides': [{ type: ContentChildren, args: [NgbSlide,] },],
+    'interval': [{ type: Input },],
+    'wrap': [{ type: Input },],
+    'keyboard': [{ type: Input },],
+    'activeId': [{ type: Input },],
+};
 function NgbCarousel_tsickle_Closure_declarations() {
-    /** @type {!QueryList<!NgbSlide>} */
+    /** @type {?} */
+    NgbCarousel.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbCarousel.ctorParameters;
+    /** @type {?} */
+    NgbCarousel.propDecorators;
+    /** @type {?} */
     NgbCarousel.prototype.slides;
     /** @type {?} */
     NgbCarousel.prototype._slideChangeInterval;
     /**
      * Amount of time in milliseconds before next slide is shown.
-     * @type {number}
+     * @type {?}
      */
     NgbCarousel.prototype.interval;
     /**
      * Whether can wrap from the last to the first slide.
-     * @type {boolean}
+     * @type {?}
      */
     NgbCarousel.prototype.wrap;
     /**
      * A flag for allowing navigation via keyboard
-     * @type {boolean}
+     * @type {?}
      */
     NgbCarousel.prototype.keyboard;
     /**
      * The active slide id.
-     * @type {string}
+     * @type {?}
      */
     NgbCarousel.prototype.activeId;
 }
-export const /** @type {!Array<?>} */ NGB_CAROUSEL_DIRECTIVES = [NgbCarousel, NgbSlide];
+export const /** @type {?} */ NGB_CAROUSEL_DIRECTIVES = [NgbCarousel, NgbSlide];
 //# sourceMappingURL=carousel.js.map

@@ -1,26 +1,12 @@
-goog.module('_ng_bootstrap.ng_bootstrap.progressbar.progressbar'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/progressbar/progressbar.js'};var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-const Component = Component; /* local alias for Closure JSDoc */
-const Input = Input; /* local alias for Closure JSDoc */
-const ChangeDetectionStrategy = ChangeDetectionStrategy; /* local alias for Closure JSDoc */
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core/index';
 import { getValueInRange } from '../util/util';
-const getValueInRange = getValueInRange; /* local alias for Closure JSDoc */
 import { NgbProgressbarConfig } from './progressbar-config';
-const NgbProgressbarConfig = NgbProgressbarConfig; /* local alias for Closure JSDoc */
 /**
  * Directive that can be used to provide feedback on the progress of a workflow or an action.
  */
-export let NgbProgressbar = class NgbProgressbar {
+export class NgbProgressbar {
     /**
-     * @param {!NgbProgressbarConfig} config
+     * @param {?} config
      */
     constructor(config) {
         /**
@@ -34,43 +20,19 @@ export let NgbProgressbar = class NgbProgressbar {
         this.showValue = config.showValue;
     }
     /**
-     * @return {number}
+     * @return {?}
      */
     getValue() { return getValueInRange(this.value, this.max); }
     /**
-     * @return {number}
+     * @return {?}
      */
     getPercentValue() { return 100 * this.getValue() / this.max; }
-};
-__decorate([
-    Input(), 
-    __metadata('design:type', Number)
-], NgbProgressbar.prototype, "max", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbProgressbar.prototype, "animated", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbProgressbar.prototype, "striped", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbProgressbar.prototype, "showValue", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', String)
-], NgbProgressbar.prototype, "type", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbProgressbar.prototype, "value", void 0);
-NgbProgressbar = __decorate([
-    /* local alias for Closure JSDoc */ Component({
-        selector: 'ngb-progressbar',
-        changeDetection: ChangeDetectionStrategy.OnPush,
-        template: `
+}
+NgbProgressbar.decorators = [
+    { type: Component, args: [{
+                selector: 'ngb-progressbar',
+                changeDetection: ChangeDetectionStrategy.OnPush,
+                template: `
     <div class="progress">
       <div class="progress-bar{{type ? ' bg-' + type : ''}}{{animated ? ' progress-bar-animated' : ''}}{{striped ?
     ' progress-bar-striped' : ''}}" role="progressbar" [style.width.%]="getPercentValue()"
@@ -79,39 +41,59 @@ NgbProgressbar = __decorate([
       </div>
     </div>
   `
-    }), 
-    __metadata('design:paramtypes', [Object])
-], NgbProgressbar);
+            },] },
+];
+/** @nocollapse */
+NgbProgressbar.ctorParameters = () => [
+    { type: NgbProgressbarConfig, },
+];
+NgbProgressbar.propDecorators = {
+    'max': [{ type: Input },],
+    'animated': [{ type: Input },],
+    'striped': [{ type: Input },],
+    'showValue': [{ type: Input },],
+    'type': [{ type: Input },],
+    'value': [{ type: Input },],
+};
 function NgbProgressbar_tsickle_Closure_declarations() {
+    /** @type {?} */
+    NgbProgressbar.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbProgressbar.ctorParameters;
+    /** @type {?} */
+    NgbProgressbar.propDecorators;
     /**
      * Maximal value to be displayed in the progressbar.
-     * @type {number}
+     * @type {?}
      */
     NgbProgressbar.prototype.max;
     /**
      * A flag indicating if the stripes of the progress bar should be animated. Takes effect only for browsers
      * supporting CSS3 animations, and if striped is true.
-     * @type {boolean}
+     * @type {?}
      */
     NgbProgressbar.prototype.animated;
     /**
      * A flag indicating if a progress bar should be displayed as striped.
-     * @type {boolean}
+     * @type {?}
      */
     NgbProgressbar.prototype.striped;
     /**
      * A flag indicating if the current percentage value should be shown.
-     * @type {boolean}
+     * @type {?}
      */
     NgbProgressbar.prototype.showValue;
     /**
      * Type of progress bar, can be one of "success", "info", "warning" or "danger".
-     * @type {string}
+     * @type {?}
      */
     NgbProgressbar.prototype.type;
     /**
      * Current value to be displayed in the progressbar. Should be smaller or equal to "max" value.
-     * @type {number}
+     * @type {?}
      */
     NgbProgressbar.prototype.value;
 }

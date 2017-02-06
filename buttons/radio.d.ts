@@ -1,5 +1,5 @@
-import { Renderer, ElementRef, OnDestroy } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
+import { Renderer, ElementRef, OnDestroy } from '@angular/core/index';
+import { ControlValueAccessor } from '@angular/forms/index';
 /**
  * Easily create Bootstrap-style radio buttons. A value of a selected button is bound to a variable
  * specified via ngModel.

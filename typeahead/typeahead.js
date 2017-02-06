@@ -1,63 +1,18 @@
-goog.module('_ng_bootstrap.ng_bootstrap.typeahead.typeahead'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/typeahead/typeahead.js'};var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { Directive, OnInit, Input, Output, EventEmitter, ComponentRef, ComponentFactoryResolver, ViewContainerRef, Injector, Renderer, ElementRef, TemplateRef, forwardRef, OnDestroy, NgZone } from '@angular/core';
-const Directive = Directive; /* local alias for Closure JSDoc */
-const OnInit = OnInit; /* local alias for Closure JSDoc */
-const Input = Input; /* local alias for Closure JSDoc */
-const Output = Output; /* local alias for Closure JSDoc */
-const EventEmitter = EventEmitter; /* local alias for Closure JSDoc */
-const ComponentRef = ComponentRef; /* local alias for Closure JSDoc */
-const ComponentFactoryResolver = ComponentFactoryResolver; /* local alias for Closure JSDoc */
-const ViewContainerRef = ViewContainerRef; /* local alias for Closure JSDoc */
-const Injector = Injector; /* local alias for Closure JSDoc */
-const Renderer = Renderer; /* local alias for Closure JSDoc */
-const ElementRef = ElementRef; /* local alias for Closure JSDoc */
-const TemplateRef = TemplateRef; /* local alias for Closure JSDoc */
-const forwardRef = forwardRef; /* local alias for Closure JSDoc */
-const OnDestroy = OnDestroy; /* local alias for Closure JSDoc */
-const NgZone = NgZone; /* local alias for Closure JSDoc */
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-const ControlValueAccessor = ControlValueAccessor; /* local alias for Closure JSDoc */
-const NG_VALUE_ACCESSOR = NG_VALUE_ACCESSOR; /* local alias for Closure JSDoc */
-import { Observable } from 'rxjs/Observable';
-const Observable = Observable; /* local alias for Closure JSDoc */
-import { Subscription } from 'rxjs/Subscription';
-const Subscription = Subscription; /* local alias for Closure JSDoc */
+import { Directive, Input, Output, EventEmitter, ComponentFactoryResolver, ViewContainerRef, Injector, Renderer, ElementRef, forwardRef, NgZone } from '@angular/core/index';
+import { NG_VALUE_ACCESSOR } from '@angular/forms/index';
 import { letProto } from 'rxjs/operator/let';
-const letProto = letProto; /* local alias for Closure JSDoc */
 import { _do } from 'rxjs/operator/do';
-const _do = _do; /* local alias for Closure JSDoc */
 import { fromEvent } from 'rxjs/observable/fromEvent';
-const fromEvent = fromEvent; /* local alias for Closure JSDoc */
 import { positionElements } from '../util/positioning';
-const positionElements = positionElements; /* local alias for Closure JSDoc */
-import { NgbTypeaheadWindow, ResultTemplateContext } from './typeahead-window';
-const NgbTypeaheadWindow = NgbTypeaheadWindow; /* local alias for Closure JSDoc */
-const ResultTemplateContext = ResultTemplateContext; /* local alias for Closure JSDoc */
+import { NgbTypeaheadWindow } from './typeahead-window';
 import { PopupService } from '../util/popup';
-const PopupService = PopupService; /* local alias for Closure JSDoc */
 import { toString, isDefined } from '../util/util';
-const toString = toString; /* local alias for Closure JSDoc */
-const isDefined = isDefined; /* local alias for Closure JSDoc */
 import { NgbTypeaheadConfig } from './typeahead-config';
-const NgbTypeaheadConfig = NgbTypeaheadConfig; /* local alias for Closure JSDoc */
 let Key = {};
-/** @type {number} */
 Key.Tab = 9;
-/** @type {number} */
 Key.Enter = 13;
-/** @type {number} */
 Key.Escape = 27;
-/** @type {number} */
 Key.ArrowUp = 38;
-/** @type {number} */
 Key.ArrowDown = 40;
 Key[Key.Tab] = "Tab";
 Key[Key.Enter] = "Enter";
@@ -69,30 +24,18 @@ const /** @type {?} */ NGB_TYPEAHEAD_VALUE_ACCESSOR = {
     useExisting: forwardRef(() => NgbTypeahead),
     multi: true
 };
-/** @record */
-export function NgbTypeaheadSelectItemEvent() { }
-/**
- * An item about to be selected
- * @type {?}
- */
-NgbTypeaheadSelectItemEvent.prototype.item;
-/**
- * Function that will prevent item selection if called
- * @type {function(): void}
- */
-NgbTypeaheadSelectItemEvent.prototype.preventDefault;
 /**
  * NgbTypeahead directive provides a simple way of creating powerful typeaheads from any text input
  */
-export let NgbTypeahead = class NgbTypeahead {
+export class NgbTypeahead {
     /**
-     * @param {!ElementRef} _elementRef
-     * @param {!ViewContainerRef} _viewContainerRef
-     * @param {!Renderer} _renderer
-     * @param {!Injector} _injector
-     * @param {!ComponentFactoryResolver} componentFactoryResolver
-     * @param {!NgbTypeaheadConfig} config
-     * @param {!NgZone} ngZone
+     * @param {?} _elementRef
+     * @param {?} _viewContainerRef
+     * @param {?} _renderer
+     * @param {?} _injector
+     * @param {?} componentFactoryResolver
+     * @param {?} config
+     * @param {?} ngZone
      */
     constructor(_elementRef, _viewContainerRef, _renderer, _injector, componentFactoryResolver, config, ngZone) {
         this._elementRef = _elementRef;
@@ -117,7 +60,7 @@ export let NgbTypeahead = class NgbTypeahead {
         });
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     ngOnInit() {
         const /** @type {?} */ inputValues$ = _do.call(this._valueChanges, value => {
@@ -135,36 +78,36 @@ export let NgbTypeahead = class NgbTypeahead {
         this._subscription = this._subscribeToUserInput(userInput$);
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     ngOnDestroy() {
         this._unsubscribeFromUserInput();
         this._zoneSubscription.unsubscribe();
     }
     /**
-     * @param {function(?): ?} fn
-     * @return {void}
+     * @param {?} fn
+     * @return {?}
      */
     registerOnChange(fn) { this._onChange = fn; }
     /**
-     * @param {function(): ?} fn
-     * @return {void}
+     * @param {?} fn
+     * @return {?}
      */
     registerOnTouched(fn) { this._onTouched = fn; }
     /**
      * @param {?} value
-     * @return {void}
+     * @return {?}
      */
     writeValue(value) { this._writeInputValue(this._formatItemForInput(value)); }
     /**
-     * @param {boolean} isDisabled
-     * @return {void}
+     * @param {?} isDisabled
+     * @return {?}
      */
     setDisabledState(isDisabled) {
         this._renderer.setElementProperty(this._elementRef.nativeElement, 'disabled', isDisabled);
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     dismissPopup() {
         if (this.isPopupOpen()) {
@@ -173,16 +116,16 @@ export let NgbTypeahead = class NgbTypeahead {
         }
     }
     /**
-     * @return {boolean}
+     * @return {?}
      */
     isPopupOpen() { return this._windowRef != null; }
     /**
-     * @return {void}
+     * @return {?}
      */
     handleBlur() { this._onTouched(); }
     /**
-     * @param {!KeyboardEvent} event
-     * @return {void}
+     * @param {?} event
+     * @return {?}
      */
     handleKeyDown(event) {
         if (!this._windowRef) {
@@ -218,7 +161,7 @@ export let NgbTypeahead = class NgbTypeahead {
         }
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     _openPopup() {
         if (!this._windowRef) {
@@ -227,7 +170,7 @@ export let NgbTypeahead = class NgbTypeahead {
         }
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     _closePopup() {
         this._popupService.close();
@@ -235,10 +178,10 @@ export let NgbTypeahead = class NgbTypeahead {
     }
     /**
      * @param {?} result
-     * @return {void}
+     * @return {?}
      */
     _selectResult(result) {
-        let /** @type {boolean} */ defaultPrevented = false;
+        let /** @type {?} */ defaultPrevented = false;
         this.selectItem.emit({ item: result, preventDefault: () => { defaultPrevented = true; } });
         if (!defaultPrevented) {
             this.writeValue(result);
@@ -247,19 +190,19 @@ export let NgbTypeahead = class NgbTypeahead {
     }
     /**
      * @param {?} result
-     * @return {void}
+     * @return {?}
      */
     _selectResultClosePopup(result) {
         this._selectResult(result);
         this._closePopup();
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     _showHint() {
         if (this.showHint) {
-            const /** @type {string} */ userInputLowerCase = this._userInput.toLowerCase();
-            const /** @type {string} */ formattedVal = this._formatItemForInput(this._windowRef.instance.getActive());
+            const /** @type {?} */ userInputLowerCase = this._userInput.toLowerCase();
+            const /** @type {?} */ formattedVal = this._formatItemForInput(this._windowRef.instance.getActive());
             if (userInputLowerCase === formattedVal.substr(0, this._userInput.length).toLowerCase()) {
                 this._writeInputValue(this._userInput + formattedVal.substr(this._userInput.length));
                 this._renderer.invokeElementMethod(this._elementRef.nativeElement, 'setSelectionRange', [this._userInput.length, formattedVal.length]);
@@ -271,21 +214,21 @@ export let NgbTypeahead = class NgbTypeahead {
     }
     /**
      * @param {?} item
-     * @return {string}
+     * @return {?}
      */
     _formatItemForInput(item) {
         return item && this.inputFormatter ? this.inputFormatter(item) : toString(item);
     }
     /**
-     * @param {string} value
-     * @return {void}
+     * @param {?} value
+     * @return {?}
      */
     _writeInputValue(value) {
         this._renderer.setElementProperty(this._elementRef.nativeElement, 'value', value);
     }
     /**
-     * @param {!Observable<!Array<?>>} userInput$
-     * @return {!Subscription}
+     * @param {?} userInput$
+     * @return {?}
      */
     _subscribeToUserInput(userInput$) {
         return userInput$.subscribe((results) => {
@@ -312,7 +255,7 @@ export let NgbTypeahead = class NgbTypeahead {
         });
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     _unsubscribeFromUserInput() {
         if (this._subscription) {
@@ -320,121 +263,117 @@ export let NgbTypeahead = class NgbTypeahead {
         }
         this._subscription = null;
     }
+}
+NgbTypeahead.decorators = [
+    { type: Directive, args: [{
+                selector: 'input[ngbTypeahead]',
+                host: {
+                    '(blur)': 'handleBlur()',
+                    '[class.open]': 'isPopupOpen()',
+                    '(document:click)': 'dismissPopup()',
+                    '(keydown)': 'handleKeyDown($event)',
+                    'autocomplete': 'off',
+                    'autocapitalize': 'off',
+                    'autocorrect': 'off'
+                },
+                providers: [NGB_TYPEAHEAD_VALUE_ACCESSOR]
+            },] },
+];
+/** @nocollapse */
+NgbTypeahead.ctorParameters = () => [
+    { type: ElementRef, },
+    { type: ViewContainerRef, },
+    { type: Renderer, },
+    { type: Injector, },
+    { type: ComponentFactoryResolver, },
+    { type: NgbTypeaheadConfig, },
+    { type: NgZone, },
+];
+NgbTypeahead.propDecorators = {
+    'editable': [{ type: Input },],
+    'focusFirst': [{ type: Input },],
+    'inputFormatter': [{ type: Input },],
+    'ngbTypeahead': [{ type: Input },],
+    'resultFormatter': [{ type: Input },],
+    'resultTemplate': [{ type: Input },],
+    'showHint': [{ type: Input },],
+    'selectItem': [{ type: Output },],
 };
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbTypeahead.prototype, "editable", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbTypeahead.prototype, "focusFirst", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Function)
-], NgbTypeahead.prototype, "inputFormatter", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Function)
-], NgbTypeahead.prototype, "ngbTypeahead", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Function)
-], NgbTypeahead.prototype, "resultFormatter", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbTypeahead.prototype, "resultTemplate", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbTypeahead.prototype, "showHint", void 0);
-__decorate([
-    Output(), 
-    __metadata('design:type', Object)
-], NgbTypeahead.prototype, "selectItem", void 0);
-NgbTypeahead = __decorate([
-    Directive({
-        selector: 'input[ngbTypeahead]',
-        host: {
-            '(blur)': 'handleBlur()',
-            '[class.open]': 'isPopupOpen()',
-            '(document:click)': 'dismissPopup()',
-            '(keydown)': 'handleKeyDown($event)',
-            'autocomplete': 'off',
-            'autocapitalize': 'off',
-            'autocorrect': 'off'
-        },
-        providers: [NGB_TYPEAHEAD_VALUE_ACCESSOR]
-    }), 
-    __metadata('design:paramtypes', [Object, Object, Object, Object, Object, Object, Object])
-], NgbTypeahead);
 function NgbTypeahead_tsickle_Closure_declarations() {
-    /** @type {!PopupService<!NgbTypeaheadWindow>} */
+    /** @type {?} */
+    NgbTypeahead.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbTypeahead.ctorParameters;
+    /** @type {?} */
+    NgbTypeahead.propDecorators;
+    /** @type {?} */
     NgbTypeahead.prototype._popupService;
-    /** @type {!Subscription} */
+    /** @type {?} */
     NgbTypeahead.prototype._subscription;
-    /** @type {string} */
+    /** @type {?} */
     NgbTypeahead.prototype._userInput;
-    /** @type {!Observable<string>} */
+    /** @type {?} */
     NgbTypeahead.prototype._valueChanges;
-    /** @type {!ComponentRef<!NgbTypeaheadWindow>} */
+    /** @type {?} */
     NgbTypeahead.prototype._windowRef;
     /** @type {?} */
     NgbTypeahead.prototype._zoneSubscription;
     /**
      * A flag indicating if model values should be restricted to the ones selected from the popup only.
-     * @type {boolean}
+     * @type {?}
      */
     NgbTypeahead.prototype.editable;
     /**
      * A flag indicating if the first match should automatically be focused as you type.
-     * @type {boolean}
+     * @type {?}
      */
     NgbTypeahead.prototype.focusFirst;
     /**
      * A function to convert a given value into string to display in the input field
-     * @type {function(?): string}
+     * @type {?}
      */
     NgbTypeahead.prototype.inputFormatter;
     /**
      * A function to transform the provided observable text into the array of results.  Note that the "this" argument
      * is undefined so you need to explicitly bind it to a desired "this" target.
-     * @type {function(!Observable<string>): !Observable<!Array<?>>}
+     * @type {?}
      */
     NgbTypeahead.prototype.ngbTypeahead;
     /**
      * A function to format a given result before display. This function should return a formatted string without any
      * HTML markup
-     * @type {function(?): string}
+     * @type {?}
      */
     NgbTypeahead.prototype.resultFormatter;
     /**
      * A template to override a matching result default display
-     * @type {!TemplateRef<!ResultTemplateContext>}
+     * @type {?}
      */
     NgbTypeahead.prototype.resultTemplate;
     /**
      * Show hint when an option in the result list matches.
-     * @type {boolean}
+     * @type {?}
      */
     NgbTypeahead.prototype.showHint;
     /**
      * An event emitted when a match is selected. Event payload is of type NgbTypeaheadSelectItemEvent.
-     * @type {!EventEmitter<!NgbTypeaheadSelectItemEvent>}
+     * @type {?}
      */
     NgbTypeahead.prototype.selectItem;
-    /** @type {function(): void} */
+    /** @type {?} */
     NgbTypeahead.prototype._onTouched;
-    /** @type {function(?): void} */
+    /** @type {?} */
     NgbTypeahead.prototype._onChange;
-    /** @type {!ElementRef} */
+    /** @type {?} */
     NgbTypeahead.prototype._elementRef;
-    /** @type {!ViewContainerRef} */
+    /** @type {?} */
     NgbTypeahead.prototype._viewContainerRef;
-    /** @type {!Renderer} */
+    /** @type {?} */
     NgbTypeahead.prototype._renderer;
-    /** @type {!Injector} */
+    /** @type {?} */
     NgbTypeahead.prototype._injector;
 }
 //# sourceMappingURL=typeahead.js.map

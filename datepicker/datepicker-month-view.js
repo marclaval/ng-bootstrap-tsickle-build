@@ -1,38 +1,17 @@
-goog.module('_ng_bootstrap.ng_bootstrap.datepicker.datepicker_month_view'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/datepicker/datepicker-month-view.js'};var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { Component, Input, TemplateRef, Output, EventEmitter } from '@angular/core';
-const Component = Component; /* local alias for Closure JSDoc */
-const Input = Input; /* local alias for Closure JSDoc */
-const TemplateRef = TemplateRef; /* local alias for Closure JSDoc */
-const Output = Output; /* local alias for Closure JSDoc */
-const EventEmitter = EventEmitter; /* local alias for Closure JSDoc */
-import { MonthViewModel, DayViewModel } from './datepicker-view-model';
-const MonthViewModel = MonthViewModel; /* local alias for Closure JSDoc */
-const DayViewModel = DayViewModel; /* local alias for Closure JSDoc */
+import { Component, Input, Output, EventEmitter } from '@angular/core/index';
 import { NgbDate } from './ngb-date';
-const NgbDate = NgbDate; /* local alias for Closure JSDoc */
 import { NgbDatepickerI18n } from './datepicker-i18n';
-const NgbDatepickerI18n = NgbDatepickerI18n; /* local alias for Closure JSDoc */
-import { DayTemplateContext } from './datepicker-day-template-context';
-const DayTemplateContext = DayTemplateContext; /* local alias for Closure JSDoc */
-export let NgbDatepickerMonthView = class NgbDatepickerMonthView {
+export class NgbDatepickerMonthView {
     /**
-     * @param {!NgbDatepickerI18n} i18n
+     * @param {?} i18n
      */
     constructor(i18n) {
         this.i18n = i18n;
         this.select = new EventEmitter();
     }
     /**
-     * @param {{date: !NgbDate, disabled: boolean}} day
-     * @return {void}
+     * @param {?} day
+     * @return {?}
      */
     doSelect(day) {
         if (!this.isDisabled(day) && !this.isCollapsed(day) && !this.isHidden(day)) {
@@ -40,63 +19,31 @@ export let NgbDatepickerMonthView = class NgbDatepickerMonthView {
         }
     }
     /**
-     * @param {{date: !NgbDate, disabled: boolean}} day
-     * @return {boolean}
+     * @param {?} day
+     * @return {?}
      */
     isDisabled(day) { return this.disabled || day.disabled; }
     /**
-     * @param {!NgbDate} date
-     * @return {boolean}
+     * @param {?} date
+     * @return {?}
      */
     isSelected(date) { return this.selectedDate && this.selectedDate.equals(date); }
     /**
-     * @param {{date: !NgbDate, disabled: boolean}} day
-     * @return {boolean}
+     * @param {?} day
+     * @return {?}
      */
     isCollapsed(day) { return this.outsideDays === 'collapsed' && this.month.number !== day.date.month; }
     /**
-     * @param {{date: !NgbDate, disabled: boolean}} day
-     * @return {boolean}
+     * @param {?} day
+     * @return {?}
      */
     isHidden(day) { return this.outsideDays === 'hidden' && this.month.number !== day.date.month; }
-};
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbDatepickerMonthView.prototype, "dayTemplate", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbDatepickerMonthView.prototype, "disabled", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbDatepickerMonthView.prototype, "month", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbDatepickerMonthView.prototype, "outsideDays", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbDatepickerMonthView.prototype, "selectedDate", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbDatepickerMonthView.prototype, "showWeekdays", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbDatepickerMonthView.prototype, "showWeekNumbers", void 0);
-__decorate([
-    Output(), 
-    __metadata('design:type', Object)
-], NgbDatepickerMonthView.prototype, "select", void 0);
-NgbDatepickerMonthView = __decorate([
-    /* local alias for Closure JSDoc */ Component({
-        selector: 'ngb-datepicker-month-view',
-        host: { 'class': 'd-block' },
-        styles: [`
+}
+NgbDatepickerMonthView.decorators = [
+    { type: Component, args: [{
+                selector: 'ngb-datepicker-month-view',
+                host: { 'class': 'd-block' },
+                styles: [`
     .ngb-dp-weekday, .ngb-dp-week-number {
       line-height: 2rem;
     }
@@ -117,7 +64,7 @@ NgbDatepickerMonthView = __decorate([
       visibility: hidden;
     }
   `],
-        template: `
+                template: `
     <div *ngIf="showWeekdays" class="ngb-dp-week d-flex">
       <div *ngIf="showWeekNumbers" class="ngb-dp-weekday"></div>
       <div *ngFor="let w of month.weekdays" class="ngb-dp-weekday small text-center text-info font-italic">
@@ -137,27 +84,49 @@ NgbDatepickerMonthView = __decorate([
       </div>
     </div>
   `
-    }), 
-    __metadata('design:paramtypes', [Object])
-], NgbDatepickerMonthView);
+            },] },
+];
+/** @nocollapse */
+NgbDatepickerMonthView.ctorParameters = () => [
+    { type: NgbDatepickerI18n, },
+];
+NgbDatepickerMonthView.propDecorators = {
+    'dayTemplate': [{ type: Input },],
+    'disabled': [{ type: Input },],
+    'month': [{ type: Input },],
+    'outsideDays': [{ type: Input },],
+    'selectedDate': [{ type: Input },],
+    'showWeekdays': [{ type: Input },],
+    'showWeekNumbers': [{ type: Input },],
+    'select': [{ type: Output },],
+};
 function NgbDatepickerMonthView_tsickle_Closure_declarations() {
-    /** @type {!TemplateRef<!DayTemplateContext>} */
+    /** @type {?} */
+    NgbDatepickerMonthView.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbDatepickerMonthView.ctorParameters;
+    /** @type {?} */
+    NgbDatepickerMonthView.propDecorators;
+    /** @type {?} */
     NgbDatepickerMonthView.prototype.dayTemplate;
-    /** @type {boolean} */
+    /** @type {?} */
     NgbDatepickerMonthView.prototype.disabled;
-    /** @type {{firstDate: !NgbDate, number: number, year: number, weeks: !Array<{number: number, days: !Array<{date: !NgbDate, disabled: boolean}>}>, weekdays: !Array<number>}} */
+    /** @type {?} */
     NgbDatepickerMonthView.prototype.month;
-    /** @type {string} */
+    /** @type {?} */
     NgbDatepickerMonthView.prototype.outsideDays;
-    /** @type {!NgbDate} */
+    /** @type {?} */
     NgbDatepickerMonthView.prototype.selectedDate;
     /** @type {?} */
     NgbDatepickerMonthView.prototype.showWeekdays;
     /** @type {?} */
     NgbDatepickerMonthView.prototype.showWeekNumbers;
-    /** @type {!EventEmitter<!NgbDate>} */
+    /** @type {?} */
     NgbDatepickerMonthView.prototype.select;
-    /** @type {!NgbDatepickerI18n} */
+    /** @type {?} */
     NgbDatepickerMonthView.prototype.i18n;
 }
 //# sourceMappingURL=datepicker-month-view.js.map

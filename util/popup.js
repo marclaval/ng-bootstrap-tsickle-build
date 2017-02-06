@@ -1,17 +1,9 @@
-goog.module('_ng_bootstrap.ng_bootstrap.util.popup'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/util/popup.js'};import { Injector, TemplateRef, ViewRef, ViewContainerRef, Renderer, ComponentRef, ComponentFactory, ComponentFactoryResolver } from '@angular/core';
-const Injector = Injector; /* local alias for Closure JSDoc */
-const TemplateRef = TemplateRef; /* local alias for Closure JSDoc */
-const ViewRef = ViewRef; /* local alias for Closure JSDoc */
-const ViewContainerRef = ViewContainerRef; /* local alias for Closure JSDoc */
-const Renderer = Renderer; /* local alias for Closure JSDoc */
-const ComponentRef = ComponentRef; /* local alias for Closure JSDoc */
-const ComponentFactory = ComponentFactory; /* local alias for Closure JSDoc */
-const ComponentFactoryResolver = ComponentFactoryResolver; /* local alias for Closure JSDoc */
+import { TemplateRef } from '@angular/core/index';
 export class ContentRef {
     /**
-     * @param {!Array<?>} nodes
-     * @param {!ViewRef=} viewRef
-     * @param {!ComponentRef<?>=} componentRef
+     * @param {?} nodes
+     * @param {?=} viewRef
+     * @param {?=} componentRef
      */
     constructor(nodes, viewRef, componentRef) {
         this.nodes = nodes;
@@ -20,20 +12,20 @@ export class ContentRef {
     }
 }
 function ContentRef_tsickle_Closure_declarations() {
-    /** @type {!Array<?>} */
+    /** @type {?} */
     ContentRef.prototype.nodes;
-    /** @type {!ViewRef} */
+    /** @type {?} */
     ContentRef.prototype.viewRef;
-    /** @type {!ComponentRef<?>} */
+    /** @type {?} */
     ContentRef.prototype.componentRef;
 }
 export class PopupService {
     /**
      * @param {?} type
-     * @param {!Injector} _injector
-     * @param {!ViewContainerRef} _viewContainerRef
-     * @param {!Renderer} _renderer
-     * @param {!ComponentFactoryResolver} componentFactoryResolver
+     * @param {?} _injector
+     * @param {?} _viewContainerRef
+     * @param {?} _renderer
+     * @param {?} componentFactoryResolver
      */
     constructor(type, _injector, _viewContainerRef, _renderer, componentFactoryResolver) {
         this._injector = _injector;
@@ -42,9 +34,9 @@ export class PopupService {
         this._windowFactory = componentFactoryResolver.resolveComponentFactory(type);
     }
     /**
-     * @param {(string|!TemplateRef<?>)=} content
+     * @param {?=} content
      * @param {?=} context
-     * @return {!ComponentRef<?>}
+     * @return {?}
      */
     open(content, context) {
         if (!this._windowRef) {
@@ -55,7 +47,7 @@ export class PopupService {
         return this._windowRef;
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     close() {
         if (this._windowRef) {
@@ -68,16 +60,16 @@ export class PopupService {
         }
     }
     /**
-     * @param {(string|!TemplateRef<?>)} content
+     * @param {?} content
      * @param {?=} context
-     * @return {!ContentRef}
+     * @return {?}
      */
     _getContentRef(content, context) {
         if (!content) {
             return new ContentRef([]);
         }
         else if (content instanceof TemplateRef) {
-            const /** @type {!EmbeddedViewRef<?>} */ viewRef = this._viewContainerRef.createEmbeddedView(/** @type {!TemplateRef<?>} */ (content), context);
+            const /** @type {?} */ viewRef = this._viewContainerRef.createEmbeddedView(/** @type {?} */ (content), context);
             return new ContentRef([viewRef.rootNodes], viewRef);
         }
         else {
@@ -86,17 +78,17 @@ export class PopupService {
     }
 }
 function PopupService_tsickle_Closure_declarations() {
-    /** @type {!ComponentFactory<?>} */
+    /** @type {?} */
     PopupService.prototype._windowFactory;
-    /** @type {!ComponentRef<?>} */
+    /** @type {?} */
     PopupService.prototype._windowRef;
-    /** @type {!ContentRef} */
+    /** @type {?} */
     PopupService.prototype._contentRef;
-    /** @type {!Injector} */
+    /** @type {?} */
     PopupService.prototype._injector;
-    /** @type {!ViewContainerRef} */
+    /** @type {?} */
     PopupService.prototype._viewContainerRef;
-    /** @type {!Renderer} */
+    /** @type {?} */
     PopupService.prototype._renderer;
 }
 //# sourceMappingURL=popup.js.map

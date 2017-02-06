@@ -1,29 +1,11 @@
-goog.module('_ng_bootstrap.ng_bootstrap.datepicker.datepicker_navigation'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/datepicker/datepicker-navigation.js'};var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-const Component = Component; /* local alias for Closure JSDoc */
-const Input = Input; /* local alias for Closure JSDoc */
-const Output = Output; /* local alias for Closure JSDoc */
-const EventEmitter = EventEmitter; /* local alias for Closure JSDoc */
+import { Component, Input, Output, EventEmitter } from '@angular/core/index';
 import { NavigationEvent } from './datepicker-view-model';
-const NavigationEvent = NavigationEvent; /* local alias for Closure JSDoc */
-import { NgbDate } from './ngb-date';
-const NgbDate = NgbDate; /* local alias for Closure JSDoc */
 import { NgbDatepickerI18n } from './datepicker-i18n';
-const NgbDatepickerI18n = NgbDatepickerI18n; /* local alias for Closure JSDoc */
 import { NgbCalendar } from './ngb-calendar';
-const NgbCalendar = NgbCalendar; /* local alias for Closure JSDoc */
-export let NgbDatepickerNavigation = class NgbDatepickerNavigation {
+export class NgbDatepickerNavigation {
     /**
-     * @param {!NgbDatepickerI18n} i18n
-     * @param {!NgbCalendar} _calendar
+     * @param {?} i18n
+     * @param {?} _calendar
      */
     constructor(i18n, _calendar) {
         this.i18n = i18n;
@@ -33,70 +15,34 @@ export let NgbDatepickerNavigation = class NgbDatepickerNavigation {
         this.select = new EventEmitter();
     }
     /**
-     * @param {number} event
-     * @return {void}
+     * @param {?} event
+     * @return {?}
      */
     doNavigate(event) { this.navigate.emit(event); }
     /**
-     * @return {boolean}
+     * @return {?}
      */
     nextDisabled() {
         return this.disabled || (this.maxDate && this._calendar.getNext(this.date, 'm').after(this.maxDate));
     }
     /**
-     * @return {boolean}
+     * @return {?}
      */
     prevDisabled() {
-        const /** @type {!NgbDate} */ prevDate = this._calendar.getPrev(this.date, 'm');
+        const /** @type {?} */ prevDate = this._calendar.getPrev(this.date, 'm');
         return this.disabled || (this.minDate && prevDate.year <= this.minDate.year && prevDate.month < this.minDate.month);
     }
     /**
-     * @param {!NgbDate} date
-     * @return {void}
+     * @param {?} date
+     * @return {?}
      */
     selectDate(date) { this.select.emit(date); }
-};
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbDatepickerNavigation.prototype, "date", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbDatepickerNavigation.prototype, "disabled", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbDatepickerNavigation.prototype, "maxDate", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbDatepickerNavigation.prototype, "minDate", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Number)
-], NgbDatepickerNavigation.prototype, "months", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbDatepickerNavigation.prototype, "showSelect", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbDatepickerNavigation.prototype, "showWeekNumbers", void 0);
-__decorate([
-    Output(), 
-    __metadata('design:type', Object)
-], NgbDatepickerNavigation.prototype, "navigate", void 0);
-__decorate([
-    Output(), 
-    __metadata('design:type', Object)
-], NgbDatepickerNavigation.prototype, "select", void 0);
-NgbDatepickerNavigation = __decorate([
-    /* local alias for Closure JSDoc */ Component({
-        selector: 'ngb-datepicker-navigation',
-        host: { 'class': 'd-flex justify-content-between', '[class.collapsed]': '!showSelect' },
-        styles: [`
+}
+NgbDatepickerNavigation.decorators = [
+    { type: Component, args: [{
+                selector: 'ngb-datepicker-navigation',
+                host: { 'class': 'd-flex justify-content-between', '[class.collapsed]': '!showSelect' },
+                styles: [`
     :host {
       height: 2rem;
       line-height: 1.85rem;
@@ -131,7 +77,7 @@ NgbDatepickerNavigation = __decorate([
       opacity: .65;
     }    
   `],
-        template: `
+                template: `
     <button type="button" class="btn-link" (click)="!!doNavigate(navigation.PREV)" [disabled]="prevDisabled()">
       <span class="ngb-dp-navigation-chevron"></span>    
     </button>
@@ -148,33 +94,57 @@ NgbDatepickerNavigation = __decorate([
       <span class="ngb-dp-navigation-chevron right"></span>
     </button>
   `
-    }), 
-    __metadata('design:paramtypes', [Object, Object])
-], NgbDatepickerNavigation);
+            },] },
+];
+/** @nocollapse */
+NgbDatepickerNavigation.ctorParameters = () => [
+    { type: NgbDatepickerI18n, },
+    { type: NgbCalendar, },
+];
+NgbDatepickerNavigation.propDecorators = {
+    'date': [{ type: Input },],
+    'disabled': [{ type: Input },],
+    'maxDate': [{ type: Input },],
+    'minDate': [{ type: Input },],
+    'months': [{ type: Input },],
+    'showSelect': [{ type: Input },],
+    'showWeekNumbers': [{ type: Input },],
+    'navigate': [{ type: Output },],
+    'select': [{ type: Output },],
+};
 function NgbDatepickerNavigation_tsickle_Closure_declarations() {
     /** @type {?} */
+    NgbDatepickerNavigation.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbDatepickerNavigation.ctorParameters;
+    /** @type {?} */
+    NgbDatepickerNavigation.propDecorators;
+    /** @type {?} */
     NgbDatepickerNavigation.prototype.navigation;
-    /** @type {!NgbDate} */
+    /** @type {?} */
     NgbDatepickerNavigation.prototype.date;
-    /** @type {boolean} */
+    /** @type {?} */
     NgbDatepickerNavigation.prototype.disabled;
-    /** @type {!NgbDate} */
+    /** @type {?} */
     NgbDatepickerNavigation.prototype.maxDate;
-    /** @type {!NgbDate} */
+    /** @type {?} */
     NgbDatepickerNavigation.prototype.minDate;
-    /** @type {number} */
+    /** @type {?} */
     NgbDatepickerNavigation.prototype.months;
-    /** @type {boolean} */
+    /** @type {?} */
     NgbDatepickerNavigation.prototype.showSelect;
-    /** @type {boolean} */
+    /** @type {?} */
     NgbDatepickerNavigation.prototype.showWeekNumbers;
-    /** @type {!EventEmitter<number>} */
+    /** @type {?} */
     NgbDatepickerNavigation.prototype.navigate;
-    /** @type {!EventEmitter<!NgbDate>} */
+    /** @type {?} */
     NgbDatepickerNavigation.prototype.select;
-    /** @type {!NgbDatepickerI18n} */
+    /** @type {?} */
     NgbDatepickerNavigation.prototype.i18n;
-    /** @type {!NgbCalendar} */
+    /** @type {?} */
     NgbDatepickerNavigation.prototype._calendar;
 }
 //# sourceMappingURL=datepicker-navigation.js.map

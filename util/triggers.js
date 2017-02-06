@@ -1,7 +1,7 @@
-goog.module('_ng_bootstrap.ng_bootstrap.util.triggers'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/util/triggers.js'};export class Trigger {
+export class Trigger {
     /**
-     * @param {string} open
-     * @param {string=} close
+     * @param {?} open
+     * @param {?=} close
      */
     constructor(open, close) {
         this.open = open;
@@ -11,34 +11,34 @@ goog.module('_ng_bootstrap.ng_bootstrap.util.triggers'); exports = {}; var modul
         }
     }
     /**
-     * @return {boolean}
+     * @return {?}
      */
     isManual() { return this.open === 'manual' || this.close === 'manual'; }
 }
 function Trigger_tsickle_Closure_declarations() {
-    /** @type {string} */
+    /** @type {?} */
     Trigger.prototype.open;
-    /** @type {string} */
+    /** @type {?} */
     Trigger.prototype.close;
 }
 const /** @type {?} */ DEFAULT_ALIASES = {
     hover: ['mouseenter', 'mouseleave']
 };
 /**
- * @param {string} triggers
+ * @param {?} triggers
  * @param {?=} aliases
- * @return {!Array<!Trigger>}
+ * @return {?}
  */
 export function parseTriggers(triggers, aliases = DEFAULT_ALIASES) {
-    const /** @type {string} */ trimmedTriggers = (triggers || '').trim();
+    const /** @type {?} */ trimmedTriggers = (triggers || '').trim();
     if (trimmedTriggers.length === 0) {
         return [];
     }
-    const /** @type {!Array<!Trigger>} */ parsedTriggers = trimmedTriggers.split(/\s+/).map(trigger => trigger.split(':')).map((triggerPair) => {
+    const /** @type {?} */ parsedTriggers = trimmedTriggers.split(/\s+/).map(trigger => trigger.split(':')).map((triggerPair) => {
         let /** @type {?} */ alias = aliases[triggerPair[0]] || triggerPair;
         return new Trigger(alias[0], alias[1]);
     });
-    const /** @type {!Array<!Trigger>} */ manualTriggers = parsedTriggers.filter(triggerPair => triggerPair.isManual());
+    const /** @type {?} */ manualTriggers = parsedTriggers.filter(triggerPair => triggerPair.isManual());
     if (manualTriggers.length > 1) {
         throw 'Triggers parse error: only one manual trigger is allowed';
     }
@@ -47,19 +47,19 @@ export function parseTriggers(triggers, aliases = DEFAULT_ALIASES) {
     }
     return parsedTriggers;
 }
-const /** @type {function(): void} */ noopFn = () => { };
+const /** @type {?} */ noopFn = () => { };
 /**
  * @param {?} renderer
  * @param {?} nativeElement
- * @param {string} triggers
+ * @param {?} triggers
  * @param {?} openFn
  * @param {?} closeFn
  * @param {?} toggleFn
- * @return {function(): void}
+ * @return {?}
  */
 export function listenToTriggers(renderer, nativeElement, triggers, openFn, closeFn, toggleFn) {
-    const /** @type {!Array<!Trigger>} */ parsedTriggers = parseTriggers(triggers);
-    const /** @type {!Array<?>} */ listeners = [];
+    const /** @type {?} */ parsedTriggers = parseTriggers(triggers);
+    const /** @type {?} */ listeners = [];
     if (parsedTriggers.length === 1 && parsedTriggers[0].isManual()) {
         return noopFn;
     }

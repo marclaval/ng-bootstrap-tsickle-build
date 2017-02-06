@@ -1,4 +1,4 @@
-import { QueryList, TemplateRef, AfterContentChecked, EventEmitter } from '@angular/core';
+import { QueryList, TemplateRef, AfterContentChecked, EventEmitter } from '@angular/core/index';
 import { NgbTabsetConfig } from './tabset-config';
 /**
  * This directive should be used to wrap tab titles that need to contain HTML markup or other directives.

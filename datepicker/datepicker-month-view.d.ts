@@ -1,4 +1,4 @@
-import { TemplateRef, EventEmitter } from '@angular/core';
+import { TemplateRef, EventEmitter } from '@angular/core/index';
 import { MonthViewModel, DayViewModel } from './datepicker-view-model';
 import { NgbDate } from './ngb-date';
 import { NgbDatepickerI18n } from './datepicker-i18n';

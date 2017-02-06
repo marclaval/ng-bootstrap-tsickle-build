@@ -1,11 +1,9 @@
-goog.module('_ng_bootstrap.ng_bootstrap.timepicker.ngb_time'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time.js'};import { isNumber, toInteger } from '../util/util';
-const isNumber = isNumber; /* local alias for Closure JSDoc */
-const toInteger = toInteger; /* local alias for Closure JSDoc */
+import { isNumber, toInteger } from '../util/util';
 export class NgbTime {
     /**
-     * @param {number=} hour
-     * @param {number=} minute
-     * @param {number=} second
+     * @param {?=} hour
+     * @param {?=} minute
+     * @param {?=} second
      */
     constructor(hour, minute, second) {
         this.hour = toInteger(hour);
@@ -13,13 +11,13 @@ export class NgbTime {
         this.second = toInteger(second);
     }
     /**
-     * @param {number=} step
-     * @return {void}
+     * @param {?=} step
+     * @return {?}
      */
     changeHour(step = 1) { this.updateHour((isNaN(this.hour) ? 0 : this.hour) + step); }
     /**
-     * @param {number} hour
-     * @return {void}
+     * @param {?} hour
+     * @return {?}
      */
     updateHour(hour) {
         if (isNumber(hour)) {
@@ -30,13 +28,13 @@ export class NgbTime {
         }
     }
     /**
-     * @param {number=} step
-     * @return {void}
+     * @param {?=} step
+     * @return {?}
      */
     changeMinute(step = 1) { this.updateMinute((isNaN(this.minute) ? 0 : this.minute) + step); }
     /**
-     * @param {number} minute
-     * @return {void}
+     * @param {?} minute
+     * @return {?}
      */
     updateMinute(minute) {
         if (isNumber(minute)) {
@@ -48,13 +46,13 @@ export class NgbTime {
         }
     }
     /**
-     * @param {number=} step
-     * @return {void}
+     * @param {?=} step
+     * @return {?}
      */
     changeSecond(step = 1) { this.updateSecond((isNaN(this.second) ? 0 : this.second) + step); }
     /**
-     * @param {number} second
-     * @return {void}
+     * @param {?} second
+     * @return {?}
      */
     updateSecond(second) {
         if (isNumber(second)) {
@@ -66,23 +64,23 @@ export class NgbTime {
         }
     }
     /**
-     * @param {boolean=} checkSecs
-     * @return {boolean}
+     * @param {?=} checkSecs
+     * @return {?}
      */
     isValid(checkSecs = true) {
         return isNumber(this.hour) && isNumber(this.minute) && (checkSecs ? isNumber(this.second) : true);
     }
     /**
-     * @return {string}
+     * @return {?}
      */
     toString() { return `${this.hour || 0}:${this.minute || 0}:${this.second || 0}`; }
 }
 function NgbTime_tsickle_Closure_declarations() {
-    /** @type {number} */
+    /** @type {?} */
     NgbTime.prototype.hour;
-    /** @type {number} */
+    /** @type {?} */
     NgbTime.prototype.minute;
-    /** @type {number} */
+    /** @type {?} */
     NgbTime.prototype.second;
 }
 //# sourceMappingURL=ngb-time.js.map

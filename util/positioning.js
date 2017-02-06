@@ -1,41 +1,41 @@
-goog.module('_ng_bootstrap.ng_bootstrap.util.positioning'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/util/positioning.js'};export class Positioning {
+export class Positioning {
     /**
-     * @param {!HTMLElement} element
-     * @param {string} prop
-     * @return {string}
+     * @param {?} element
+     * @param {?} prop
+     * @return {?}
      */
     getStyle(element, prop) { return window.getComputedStyle(element)[prop]; }
     /**
-     * @param {!HTMLElement} element
-     * @return {boolean}
+     * @param {?} element
+     * @return {?}
      */
     isStaticPositioned(element) {
         return (this.getStyle(element, 'position') || 'static') === 'static';
     }
     /**
-     * @param {!HTMLElement} element
-     * @return {!HTMLElement}
+     * @param {?} element
+     * @return {?}
      */
     offsetParent(element) {
-        let /** @type {!HTMLElement} */ offsetParentEl = (element.offsetParent) || document.documentElement;
+        let /** @type {?} */ offsetParentEl = (element.offsetParent) || document.documentElement;
         while (offsetParentEl && offsetParentEl !== document.documentElement && this.isStaticPositioned(offsetParentEl)) {
             offsetParentEl = (offsetParentEl.offsetParent);
         }
         return offsetParentEl || document.documentElement;
     }
     /**
-     * @param {!HTMLElement} element
-     * @param {boolean=} round
-     * @return {!ClientRect}
+     * @param {?} element
+     * @param {?=} round
+     * @return {?}
      */
     position(element, round = true) {
-        let /** @type {!ClientRect} */ elPosition;
-        let /** @type {!ClientRect} */ parentOffset = { width: 0, height: 0, top: 0, bottom: 0, left: 0, right: 0 };
+        let /** @type {?} */ elPosition;
+        let /** @type {?} */ parentOffset = { width: 0, height: 0, top: 0, bottom: 0, left: 0, right: 0 };
         if (this.getStyle(element, 'position') === 'fixed') {
             elPosition = element.getBoundingClientRect();
         }
         else {
-            const /** @type {!HTMLElement} */ offsetParentEl = this.offsetParent(element);
+            const /** @type {?} */ offsetParentEl = this.offsetParent(element);
             elPosition = this.offset(element, false);
             if (offsetParentEl !== document.documentElement) {
                 parentOffset = this.offset(offsetParentEl, false);
@@ -56,12 +56,12 @@ goog.module('_ng_bootstrap.ng_bootstrap.util.positioning'); exports = {}; var mo
         return elPosition;
     }
     /**
-     * @param {!HTMLElement} element
-     * @param {boolean=} round
-     * @return {!ClientRect}
+     * @param {?} element
+     * @param {?=} round
+     * @return {?}
      */
     offset(element, round = true) {
-        const /** @type {!ClientRect} */ elBcr = element.getBoundingClientRect();
+        const /** @type {?} */ elBcr = element.getBoundingClientRect();
         const /** @type {?} */ viewportOffset = {
             top: window.pageYOffset - document.documentElement.clientTop,
             left: window.pageXOffset - document.documentElement.clientLeft
@@ -85,14 +85,14 @@ goog.module('_ng_bootstrap.ng_bootstrap.util.positioning'); exports = {}; var mo
         return elOffset;
     }
     /**
-     * @param {!HTMLElement} hostElement
-     * @param {!HTMLElement} targetElement
-     * @param {string} placement
-     * @param {boolean=} appendToBody
-     * @return {!ClientRect}
+     * @param {?} hostElement
+     * @param {?} targetElement
+     * @param {?} placement
+     * @param {?=} appendToBody
+     * @return {?}
      */
     positionElements(hostElement, targetElement, placement, appendToBody) {
-        const /** @type {!ClientRect} */ hostElPosition = appendToBody ? this.offset(hostElement, false) : this.position(hostElement, false);
+        const /** @type {?} */ hostElPosition = appendToBody ? this.offset(hostElement, false) : this.position(hostElement, false);
         const /** @type {?} */ shiftWidth = {
             left: hostElPosition.left,
             center: hostElPosition.left + hostElPosition.width / 2 - targetElement.offsetWidth / 2,
@@ -103,10 +103,10 @@ goog.module('_ng_bootstrap.ng_bootstrap.util.positioning'); exports = {}; var mo
             center: hostElPosition.top + hostElPosition.height / 2 - targetElement.offsetHeight / 2,
             bottom: hostElPosition.top + hostElPosition.height
         };
-        const /** @type {!ClientRect} */ targetElBCR = targetElement.getBoundingClientRect();
-        const /** @type {string} */ placementPrimary = placement.split('-')[0] || 'top';
-        const /** @type {string} */ placementSecondary = placement.split('-')[1] || 'center';
-        let /** @type {!ClientRect} */ targetElPosition = {
+        const /** @type {?} */ targetElBCR = targetElement.getBoundingClientRect();
+        const /** @type {?} */ placementPrimary = placement.split('-')[0] || 'top';
+        const /** @type {?} */ placementSecondary = placement.split('-')[1] || 'center';
+        let /** @type {?} */ targetElPosition = {
             height: targetElBCR.height || targetElement.offsetHeight,
             width: targetElBCR.width || targetElement.offsetWidth,
             top: 0,
@@ -147,16 +147,16 @@ goog.module('_ng_bootstrap.ng_bootstrap.util.positioning'); exports = {}; var mo
         return targetElPosition;
     }
 }
-const /** @type {!Positioning} */ positionService = new Positioning();
+const /** @type {?} */ positionService = new Positioning();
 /**
- * @param {!HTMLElement} hostElement
- * @param {!HTMLElement} targetElement
- * @param {string} placement
- * @param {boolean=} appendToBody
- * @return {void}
+ * @param {?} hostElement
+ * @param {?} targetElement
+ * @param {?} placement
+ * @param {?=} appendToBody
+ * @return {?}
  */
 export function positionElements(hostElement, targetElement, placement, appendToBody) {
-    const /** @type {!ClientRect} */ pos = positionService.positionElements(hostElement, targetElement, placement, appendToBody);
+    const /** @type {?} */ pos = positionService.positionElements(hostElement, targetElement, placement, appendToBody);
     targetElement.style.top = `${pos.top}px`;
     targetElement.style.left = `${pos.left}px`;
 }

@@ -1,68 +1,68 @@
-goog.module('_ng_bootstrap.ng_bootstrap.tabset.tabset'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/tabset/tabset.js'};var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { Component, Input, ContentChildren, QueryList, Directive, TemplateRef, ContentChild, AfterContentChecked, Output, EventEmitter } from '@angular/core';
-const Component = Component; /* local alias for Closure JSDoc */
-const Input = Input; /* local alias for Closure JSDoc */
-const ContentChildren = ContentChildren; /* local alias for Closure JSDoc */
-const QueryList = QueryList; /* local alias for Closure JSDoc */
-const Directive = Directive; /* local alias for Closure JSDoc */
-const TemplateRef = TemplateRef; /* local alias for Closure JSDoc */
-const ContentChild = ContentChild; /* local alias for Closure JSDoc */
-const AfterContentChecked = AfterContentChecked; /* local alias for Closure JSDoc */
-const Output = Output; /* local alias for Closure JSDoc */
-const EventEmitter = EventEmitter; /* local alias for Closure JSDoc */
+import { Component, Input, ContentChildren, Directive, TemplateRef, ContentChild, Output, EventEmitter } from '@angular/core/index';
 import { NgbTabsetConfig } from './tabset-config';
-const NgbTabsetConfig = NgbTabsetConfig; /* local alias for Closure JSDoc */
-let /** @type {number} */ nextId = 0;
+let /** @type {?} */ nextId = 0;
 /**
  * This directive should be used to wrap tab titles that need to contain HTML markup or other directives.
  */
-export let NgbTabTitle = class NgbTabTitle {
+export class NgbTabTitle {
     /**
-     * @param {!TemplateRef<?>} templateRef
+     * @param {?} templateRef
      */
     constructor(templateRef) {
         this.templateRef = templateRef;
     }
-};
-NgbTabTitle = __decorate([
-    Directive({ selector: 'template[ngbTabTitle]' }), 
-    __metadata('design:paramtypes', [Object])
-], NgbTabTitle);
+}
+NgbTabTitle.decorators = [
+    { type: Directive, args: [{ selector: 'template[ngbTabTitle]' },] },
+];
+/** @nocollapse */
+NgbTabTitle.ctorParameters = () => [
+    { type: TemplateRef, },
+];
 function NgbTabTitle_tsickle_Closure_declarations() {
-    /** @type {!TemplateRef<?>} */
+    /** @type {?} */
+    NgbTabTitle.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbTabTitle.ctorParameters;
+    /** @type {?} */
     NgbTabTitle.prototype.templateRef;
 }
 /**
  * This directive must be used to wrap content to be displayed in a tab.
  */
-export let NgbTabContent = class NgbTabContent {
+export class NgbTabContent {
     /**
-     * @param {!TemplateRef<?>} templateRef
+     * @param {?} templateRef
      */
     constructor(templateRef) {
         this.templateRef = templateRef;
     }
-};
-NgbTabContent = __decorate([
-    Directive({ selector: 'template[ngbTabContent]' }), 
-    __metadata('design:paramtypes', [Object])
-], NgbTabContent);
+}
+NgbTabContent.decorators = [
+    { type: Directive, args: [{ selector: 'template[ngbTabContent]' },] },
+];
+/** @nocollapse */
+NgbTabContent.ctorParameters = () => [
+    { type: TemplateRef, },
+];
 function NgbTabContent_tsickle_Closure_declarations() {
-    /** @type {!TemplateRef<?>} */
+    /** @type {?} */
+    NgbTabContent.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbTabContent.ctorParameters;
+    /** @type {?} */
     NgbTabContent.prototype.templateRef;
 }
 /**
  * A directive representing an individual tab.
  */
-export let NgbTab = class NgbTab {
+export class NgbTab {
     constructor() {
         /**
          * Unique tab identifier. Must be unique for the entire document for proper accessibility support.
@@ -73,75 +73,55 @@ export let NgbTab = class NgbTab {
          */
         this.disabled = false;
     }
+}
+NgbTab.decorators = [
+    { type: Directive, args: [{ selector: 'ngb-tab' },] },
+];
+/** @nocollapse */
+NgbTab.ctorParameters = () => [];
+NgbTab.propDecorators = {
+    'id': [{ type: Input },],
+    'title': [{ type: Input },],
+    'disabled': [{ type: Input },],
+    'contentTpl': [{ type: ContentChild, args: [NgbTabContent,] },],
+    'titleTpl': [{ type: ContentChild, args: [NgbTabTitle,] },],
 };
-__decorate([
-    Input(), 
-    __metadata('design:type', String)
-], NgbTab.prototype, "id", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', String)
-], NgbTab.prototype, "title", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbTab.prototype, "disabled", void 0);
-__decorate([
-    ContentChild(NgbTabContent), 
-    __metadata('design:type', NgbTabContent)
-], NgbTab.prototype, "contentTpl", void 0);
-__decorate([
-    ContentChild(NgbTabTitle), 
-    __metadata('design:type', NgbTabTitle)
-], NgbTab.prototype, "titleTpl", void 0);
-NgbTab = __decorate([
-    Directive({ selector: 'ngb-tab' }), 
-    __metadata('design:paramtypes', [])
-], NgbTab);
 function NgbTab_tsickle_Closure_declarations() {
+    /** @type {?} */
+    NgbTab.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbTab.ctorParameters;
+    /** @type {?} */
+    NgbTab.propDecorators;
     /**
      * Unique tab identifier. Must be unique for the entire document for proper accessibility support.
-     * @type {string}
+     * @type {?}
      */
     NgbTab.prototype.id;
     /**
      * Simple (string only) title. Use the "NgbTabTitle" directive for more complex use-cases.
-     * @type {string}
+     * @type {?}
      */
     NgbTab.prototype.title;
     /**
      * Allows toggling disabled state of a given state. Disabled tabs can't be selected.
-     * @type {boolean}
+     * @type {?}
      */
     NgbTab.prototype.disabled;
-    /** @type {!NgbTabContent} */
+    /** @type {?} */
     NgbTab.prototype.contentTpl;
-    /** @type {!NgbTabTitle} */
+    /** @type {?} */
     NgbTab.prototype.titleTpl;
 }
-/** @record */
-export function NgbTabChangeEvent() { }
-/**
- * Id of the currently active tab
- * @type {string}
- */
-NgbTabChangeEvent.prototype.activeId;
-/**
- * Id of the newly selected tab
- * @type {string}
- */
-NgbTabChangeEvent.prototype.nextId;
-/**
- * Function that will prevent tab switch if called
- * @type {function(): void}
- */
-NgbTabChangeEvent.prototype.preventDefault;
 /**
  * A component that makes it easy to create tabbed interface.
  */
-export let NgbTabset = class NgbTabset {
+export class NgbTabset {
     /**
-     * @param {!NgbTabsetConfig} config
+     * @param {?} config
      */
     constructor(config) {
         /**
@@ -154,13 +134,13 @@ export let NgbTabset = class NgbTabset {
     /**
      * Selects the tab with the given id and shows its associated pane.
      * Any other tab that was previously selected becomes unselected and its associated pane is hidden.
-     * @param {string} tabId
-     * @return {void}
+     * @param {?} tabId
+     * @return {?}
      */
     select(tabId) {
-        let /** @type {!NgbTab} */ selectedTab = this._getTabById(tabId);
+        let /** @type {?} */ selectedTab = this._getTabById(tabId);
         if (selectedTab && !selectedTab.disabled && this.activeId !== selectedTab.id) {
-            let /** @type {boolean} */ defaultPrevented = false;
+            let /** @type {?} */ defaultPrevented = false;
             this.tabChange.emit({ activeId: this.activeId, nextId: selectedTab.id, preventDefault: () => { defaultPrevented = true; } });
             if (!defaultPrevented) {
                 this.activeId = selectedTab.id;
@@ -168,47 +148,27 @@ export let NgbTabset = class NgbTabset {
         }
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     ngAfterContentChecked() {
         // auto-correct activeId that might have been set incorrectly as input
-        let /** @type {!NgbTab} */ activeTab = this._getTabById(this.activeId);
+        let /** @type {?} */ activeTab = this._getTabById(this.activeId);
         this.activeId = activeTab ? activeTab.id : (this.tabs.length ? this.tabs.first.id : null);
     }
     /**
-     * @param {string} id
-     * @return {!NgbTab}
+     * @param {?} id
+     * @return {?}
      */
     _getTabById(id) {
-        let /** @type {!Array<!NgbTab>} */ tabsWithId = this.tabs.filter(tab => tab.id === id);
+        let /** @type {?} */ tabsWithId = this.tabs.filter(tab => tab.id === id);
         return tabsWithId.length ? tabsWithId[0] : null;
     }
-};
-__decorate([
-    ContentChildren(NgbTab), 
-    __metadata('design:type', Object)
-], NgbTabset.prototype, "tabs", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', String)
-], NgbTabset.prototype, "activeId", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbTabset.prototype, "justify", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbTabset.prototype, "type", void 0);
-__decorate([
-    Output(), 
-    __metadata('design:type', Object)
-], NgbTabset.prototype, "tabChange", void 0);
-NgbTabset = __decorate([
-    Component({
-        selector: 'ngb-tabset',
-        exportAs: 'ngbTabset',
-        template: `
+}
+NgbTabset.decorators = [
+    { type: Component, args: [{
+                selector: 'ngb-tabset',
+                exportAs: 'ngbTabset',
+                template: `
     <ul [class]="'nav nav-' + type + ' justify-content-' + justify" role="tablist">
       <li class="nav-item" *ngFor="let tab of tabs">
         <a [id]="tab.id" class="nav-link" [class.active]="tab.id === activeId" [class.disabled]="tab.disabled"
@@ -225,30 +185,49 @@ NgbTabset = __decorate([
       </template>
     </div>
   `
-    }), 
-    __metadata('design:paramtypes', [Object])
-], NgbTabset);
+            },] },
+];
+/** @nocollapse */
+NgbTabset.ctorParameters = () => [
+    { type: NgbTabsetConfig, },
+];
+NgbTabset.propDecorators = {
+    'tabs': [{ type: ContentChildren, args: [NgbTab,] },],
+    'activeId': [{ type: Input },],
+    'justify': [{ type: Input },],
+    'type': [{ type: Input },],
+    'tabChange': [{ type: Output },],
+};
 function NgbTabset_tsickle_Closure_declarations() {
-    /** @type {!QueryList<!NgbTab>} */
+    /** @type {?} */
+    NgbTabset.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbTabset.ctorParameters;
+    /** @type {?} */
+    NgbTabset.propDecorators;
+    /** @type {?} */
     NgbTabset.prototype.tabs;
     /**
      * An identifier of an initially selected (active) tab. Use the "select" method to switch a tab programmatically.
-     * @type {string}
+     * @type {?}
      */
     NgbTabset.prototype.activeId;
     /**
      * The horizontal alignment of the nav with flexbox utilities. Can be one of 'start', 'center' or 'end'
-     * @type {string}
+     * @type {?}
      */
     NgbTabset.prototype.justify;
     /**
      * Type of navigation to be used for tabs. Can be one of 'tabs' or 'pills'.
-     * @type {string}
+     * @type {?}
      */
     NgbTabset.prototype.type;
     /**
      * A tab change event fired right before the tab selection happens. See NgbTabChangeEvent for payload details
-     * @type {!EventEmitter<!NgbTabChangeEvent>}
+     * @type {?}
      */
     NgbTabset.prototype.tabChange;
 }

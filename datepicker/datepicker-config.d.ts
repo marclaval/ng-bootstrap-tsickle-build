@@ -1,4 +1,4 @@
-import { TemplateRef } from '@angular/core';
+import { TemplateRef } from '@angular/core/index';
 import { DayTemplateContext } from './datepicker-day-template-context';
 import { NgbDateStruct } from './ngb-date-struct';
 /**

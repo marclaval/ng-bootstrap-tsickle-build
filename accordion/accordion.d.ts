@@ -1,4 +1,4 @@
-import { AfterContentChecked, EventEmitter, QueryList, TemplateRef } from '@angular/core';
+import { AfterContentChecked, EventEmitter, QueryList, TemplateRef } from '@angular/core/index';
 import { NgbAccordionConfig } from './accordion-config';
 /**
  * This directive should be used to wrap accordion panel titles that need to contain HTML markup or other directives.

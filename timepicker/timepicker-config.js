@@ -1,20 +1,10 @@
-goog.module('_ng_bootstrap.ng_bootstrap.timepicker.timepicker_config'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/timepicker/timepicker-config.js'};var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { Injectable } from '@angular/core';
-const Injectable = Injectable; /* local alias for Closure JSDoc */
+import { Injectable } from '@angular/core/index';
 /**
  * Configuration service for the NgbTimepicker component.
  * You can inject this service, typically in your root component, and customize the values of its properties in
  * order to provide default values for all the timepickers used in the application.
  */
-export let NgbTimepickerConfig = class NgbTimepickerConfig {
+export class NgbTimepickerConfig {
     constructor() {
         this.meridian = false;
         this.spinners = true;
@@ -26,29 +16,37 @@ export let NgbTimepickerConfig = class NgbTimepickerConfig {
         this.readonlyInputs = false;
         this.size = 'medium';
     }
-};
-NgbTimepickerConfig = __decorate([
-    /* local alias for Closure JSDoc */ Injectable(), 
-    __metadata('design:paramtypes', [])
-], NgbTimepickerConfig);
+}
+NgbTimepickerConfig.decorators = [
+    { type: Injectable },
+];
+/** @nocollapse */
+NgbTimepickerConfig.ctorParameters = () => [];
 function NgbTimepickerConfig_tsickle_Closure_declarations() {
-    /** @type {boolean} */
+    /** @type {?} */
+    NgbTimepickerConfig.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbTimepickerConfig.ctorParameters;
+    /** @type {?} */
     NgbTimepickerConfig.prototype.meridian;
-    /** @type {boolean} */
+    /** @type {?} */
     NgbTimepickerConfig.prototype.spinners;
-    /** @type {boolean} */
+    /** @type {?} */
     NgbTimepickerConfig.prototype.seconds;
-    /** @type {number} */
+    /** @type {?} */
     NgbTimepickerConfig.prototype.hourStep;
-    /** @type {number} */
+    /** @type {?} */
     NgbTimepickerConfig.prototype.minuteStep;
-    /** @type {number} */
+    /** @type {?} */
     NgbTimepickerConfig.prototype.secondStep;
-    /** @type {boolean} */
+    /** @type {?} */
     NgbTimepickerConfig.prototype.disabled;
-    /** @type {boolean} */
+    /** @type {?} */
     NgbTimepickerConfig.prototype.readonlyInputs;
-    /** @type {string} */
+    /** @type {?} */
     NgbTimepickerConfig.prototype.size;
 }
 //# sourceMappingURL=timepicker-config.js.map

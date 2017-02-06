@@ -1,30 +1,8 @@
-goog.module('_ng_bootstrap.ng_bootstrap.timepicker.timepicker'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/timepicker/timepicker.js'};var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { Component, Input, forwardRef, OnChanges, SimpleChanges } from '@angular/core';
-const Component = Component; /* local alias for Closure JSDoc */
-const Input = Input; /* local alias for Closure JSDoc */
-const forwardRef = forwardRef; /* local alias for Closure JSDoc */
-const OnChanges = OnChanges; /* local alias for Closure JSDoc */
-const SimpleChanges = SimpleChanges; /* local alias for Closure JSDoc */
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-const ControlValueAccessor = ControlValueAccessor; /* local alias for Closure JSDoc */
-const NG_VALUE_ACCESSOR = NG_VALUE_ACCESSOR; /* local alias for Closure JSDoc */
-import { isNumber, padNumber, toInteger, isDefined } from '../util/util';
-const isNumber = isNumber; /* local alias for Closure JSDoc */
-const padNumber = padNumber; /* local alias for Closure JSDoc */
-const toInteger = toInteger; /* local alias for Closure JSDoc */
-const isDefined = isDefined; /* local alias for Closure JSDoc */
+import { Component, Input, forwardRef } from '@angular/core/index';
+import { NG_VALUE_ACCESSOR } from '@angular/forms/index';
+import { isNumber, padNumber, toInteger } from '../util/util';
 import { NgbTime } from './ngb-time';
-const NgbTime = NgbTime; /* local alias for Closure JSDoc */
 import { NgbTimepickerConfig } from './timepicker-config';
-const NgbTimepickerConfig = NgbTimepickerConfig; /* local alias for Closure JSDoc */
 const /** @type {?} */ NGB_TIMEPICKER_VALUE_ACCESSOR = {
     provide: NG_VALUE_ACCESSOR,
     useExisting: forwardRef(() => NgbTimepicker),
@@ -33,9 +11,9 @@ const /** @type {?} */ NGB_TIMEPICKER_VALUE_ACCESSOR = {
 /**
  * A lightweight & configurable timepicker directive.
  */
-export let NgbTimepicker = class NgbTimepicker {
+export class NgbTimepicker {
     /**
-     * @param {!NgbTimepickerConfig} config
+     * @param {?} config
      */
     constructor(config) {
         this.onChange = (_) => { };
@@ -52,7 +30,7 @@ export let NgbTimepicker = class NgbTimepicker {
     }
     /**
      * @param {?} value
-     * @return {void}
+     * @return {?}
      */
     writeValue(value) {
         this.model = value ? new NgbTime(value.hour, value.minute, value.second) : new NgbTime();
@@ -61,70 +39,70 @@ export let NgbTimepicker = class NgbTimepicker {
         }
     }
     /**
-     * @param {function(?): ?} fn
-     * @return {void}
+     * @param {?} fn
+     * @return {?}
      */
     registerOnChange(fn) { this.onChange = fn; }
     /**
-     * @param {function(): ?} fn
-     * @return {void}
+     * @param {?} fn
+     * @return {?}
      */
     registerOnTouched(fn) { this.onTouched = fn; }
     /**
-     * @param {boolean} isDisabled
-     * @return {void}
+     * @param {?} isDisabled
+     * @return {?}
      */
     setDisabledState(isDisabled) { this.disabled = isDisabled; }
     /**
-     * @param {number} step
-     * @return {void}
+     * @param {?} step
+     * @return {?}
      */
     changeHour(step) {
         this.model.changeHour(step);
         this.propagateModelChange();
     }
     /**
-     * @param {number} step
-     * @return {void}
+     * @param {?} step
+     * @return {?}
      */
     changeMinute(step) {
         this.model.changeMinute(step);
         this.propagateModelChange();
     }
     /**
-     * @param {number} step
-     * @return {void}
+     * @param {?} step
+     * @return {?}
      */
     changeSecond(step) {
         this.model.changeSecond(step);
         this.propagateModelChange();
     }
     /**
-     * @param {string} newVal
-     * @return {void}
+     * @param {?} newVal
+     * @return {?}
      */
     updateHour(newVal) {
         this.model.updateHour(toInteger(newVal));
         this.propagateModelChange();
     }
     /**
-     * @param {string} newVal
-     * @return {void}
+     * @param {?} newVal
+     * @return {?}
      */
     updateMinute(newVal) {
         this.model.updateMinute(toInteger(newVal));
         this.propagateModelChange();
     }
     /**
-     * @param {string} newVal
-     * @return {void}
+     * @param {?} newVal
+     * @return {?}
      */
     updateSecond(newVal) {
         this.model.updateSecond(toInteger(newVal));
         this.propagateModelChange();
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     toggleMeridian() {
         if (this.meridian) {
@@ -132,8 +110,8 @@ export let NgbTimepicker = class NgbTimepicker {
         }
     }
     /**
-     * @param {number} value
-     * @return {string}
+     * @param {?} value
+     * @return {?}
      */
     formatHour(value) {
         if (isNumber(value)) {
@@ -149,8 +127,8 @@ export let NgbTimepicker = class NgbTimepicker {
         }
     }
     /**
-     * @param {number} value
-     * @return {string}
+     * @param {?} value
+     * @return {?}
      */
     formatMinSec(value) { return padNumber(value); }
     /**
@@ -162,8 +140,8 @@ export let NgbTimepicker = class NgbTimepicker {
      */
     setMeridanSize() { return { 'btn-sm': this.size === 'small', 'btn-lg': this.size === 'large' }; }
     /**
-     * @param {!SimpleChanges} changes
-     * @return {void}
+     * @param {?} changes
+     * @return {?}
      */
     ngOnChanges(changes) {
         if (changes['seconds'] && !this.seconds && this.model && !isNumber(this.model.second)) {
@@ -172,8 +150,8 @@ export let NgbTimepicker = class NgbTimepicker {
         }
     }
     /**
-     * @param {boolean=} touched
-     * @return {void}
+     * @param {?=} touched
+     * @return {?}
      */
     propagateModelChange(touched = true) {
         if (touched) {
@@ -186,43 +164,11 @@ export let NgbTimepicker = class NgbTimepicker {
             this.onChange(null);
         }
     }
-};
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbTimepicker.prototype, "meridian", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbTimepicker.prototype, "spinners", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbTimepicker.prototype, "seconds", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Number)
-], NgbTimepicker.prototype, "hourStep", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Number)
-], NgbTimepicker.prototype, "minuteStep", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Number)
-], NgbTimepicker.prototype, "secondStep", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbTimepicker.prototype, "readonlyInputs", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbTimepicker.prototype, "size", void 0);
-NgbTimepicker = __decorate([
-    Component({
-        selector: 'ngb-timepicker',
-        styles: [`
+}
+NgbTimepicker.decorators = [
+    { type: Component, args: [{
+                selector: 'ngb-timepicker',
+                styles: [`
     .chevron::before {
       border-style: solid;
       border-width: 0.29em 0.29em 0 0;
@@ -259,7 +205,7 @@ NgbTimepicker = __decorate([
       text-align: center;
     }
   `],
-        template: `
+                template: `
      <fieldset [disabled]="disabled" [class.disabled]="disabled">
       <table>
         <tr *ngIf="spinners">
@@ -349,58 +295,80 @@ NgbTimepicker = __decorate([
       </table>
     </fieldset>
   `,
-        providers: [NGB_TIMEPICKER_VALUE_ACCESSOR]
-    }), 
-    __metadata('design:paramtypes', [Object])
-], NgbTimepicker);
+                providers: [NGB_TIMEPICKER_VALUE_ACCESSOR]
+            },] },
+];
+/** @nocollapse */
+NgbTimepicker.ctorParameters = () => [
+    { type: NgbTimepickerConfig, },
+];
+NgbTimepicker.propDecorators = {
+    'meridian': [{ type: Input },],
+    'spinners': [{ type: Input },],
+    'seconds': [{ type: Input },],
+    'hourStep': [{ type: Input },],
+    'minuteStep': [{ type: Input },],
+    'secondStep': [{ type: Input },],
+    'readonlyInputs': [{ type: Input },],
+    'size': [{ type: Input },],
+};
 function NgbTimepicker_tsickle_Closure_declarations() {
-    /** @type {boolean} */
+    /** @type {?} */
+    NgbTimepicker.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbTimepicker.ctorParameters;
+    /** @type {?} */
+    NgbTimepicker.propDecorators;
+    /** @type {?} */
     NgbTimepicker.prototype.disabled;
-    /** @type {!NgbTime} */
+    /** @type {?} */
     NgbTimepicker.prototype.model;
     /**
      * Whether to display 12H or 24H mode.
-     * @type {boolean}
+     * @type {?}
      */
     NgbTimepicker.prototype.meridian;
     /**
      * Whether to display the spinners above and below the inputs.
-     * @type {boolean}
+     * @type {?}
      */
     NgbTimepicker.prototype.spinners;
     /**
      * Whether to display seconds input.
-     * @type {boolean}
+     * @type {?}
      */
     NgbTimepicker.prototype.seconds;
     /**
      * Number of hours to increase or decrease when using a button.
-     * @type {number}
+     * @type {?}
      */
     NgbTimepicker.prototype.hourStep;
     /**
      * Number of minutes to increase or decrease when using a button.
-     * @type {number}
+     * @type {?}
      */
     NgbTimepicker.prototype.minuteStep;
     /**
      * Number of seconds to increase or decrease when using a button.
-     * @type {number}
+     * @type {?}
      */
     NgbTimepicker.prototype.secondStep;
     /**
      * To make timepicker readonly
-     * @type {boolean}
+     * @type {?}
      */
     NgbTimepicker.prototype.readonlyInputs;
     /**
      * To set the size of the inputs and button
-     * @type {string}
+     * @type {?}
      */
     NgbTimepicker.prototype.size;
-    /** @type {function(?): void} */
+    /** @type {?} */
     NgbTimepicker.prototype.onChange;
-    /** @type {function(): void} */
+    /** @type {?} */
     NgbTimepicker.prototype.onTouched;
 }
 //# sourceMappingURL=timepicker.js.map

@@ -1,4 +1,4 @@
-import { Injector, TemplateRef, ViewRef, ViewContainerRef, Renderer, ComponentRef, ComponentFactoryResolver } from '@angular/core';
+import { Injector, TemplateRef, ViewRef, ViewContainerRef, Renderer, ComponentRef, ComponentFactoryResolver } from '@angular/core/index';
 export declare class ContentRef {
     nodes: any[];
     viewRef: ViewRef;

@@ -1,8 +1,8 @@
-goog.module('_ng_bootstrap.ng_bootstrap.datepicker.ngb_date'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/datepicker/ngb-date.js'};export class NgbDate {
+export class NgbDate {
     /**
-     * @param {number} year
-     * @param {number} month
-     * @param {number} day
+     * @param {?} year
+     * @param {?} month
+     * @param {?} day
      */
     constructor(year, month, day) {
         this.year = year;
@@ -10,22 +10,22 @@ goog.module('_ng_bootstrap.ng_bootstrap.datepicker.ngb_date'); exports = {}; var
         this.day = day;
     }
     /**
-     * @param {{year: number, month: number, day: number}} date
-     * @return {!NgbDate}
+     * @param {?} date
+     * @return {?}
      */
     static from(date) {
         return date ? new NgbDate(date.year, date.month, date.day ? date.day : 1) : null;
     }
     /**
-     * @param {!NgbDate} other
-     * @return {boolean}
+     * @param {?} other
+     * @return {?}
      */
     equals(other) {
         return other && this.year === other.year && this.month === other.month && this.day === other.day;
     }
     /**
-     * @param {!NgbDate} other
-     * @return {boolean}
+     * @param {?} other
+     * @return {?}
      */
     before(other) {
         if (!other) {
@@ -44,8 +44,8 @@ goog.module('_ng_bootstrap.ng_bootstrap.datepicker.ngb_date'); exports = {}; var
         }
     }
     /**
-     * @param {!NgbDate} other
-     * @return {boolean}
+     * @param {?} other
+     * @return {?}
      */
     after(other) {
         if (!other) {
@@ -64,16 +64,16 @@ goog.module('_ng_bootstrap.ng_bootstrap.datepicker.ngb_date'); exports = {}; var
         }
     }
     /**
-     * @return {string}
+     * @return {?}
      */
     toString() { return `${this.year}-${this.month}-${this.day}`; }
 }
 function NgbDate_tsickle_Closure_declarations() {
-    /** @type {number} */
+    /** @type {?} */
     NgbDate.prototype.year;
-    /** @type {number} */
+    /** @type {?} */
     NgbDate.prototype.month;
-    /** @type {number} */
+    /** @type {?} */
     NgbDate.prototype.day;
 }
 //# sourceMappingURL=ngb-date.js.map

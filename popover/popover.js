@@ -1,79 +1,56 @@
-goog.module('_ng_bootstrap.ng_bootstrap.popover.popover'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/popover/popover.js'};var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { Component, Directive, Input, Output, EventEmitter, ChangeDetectionStrategy, OnInit, OnDestroy, Injector, Renderer, ComponentRef, ElementRef, TemplateRef, ViewContainerRef, ComponentFactoryResolver, NgZone } from '@angular/core';
-const Component = Component; /* local alias for Closure JSDoc */
-const Directive = Directive; /* local alias for Closure JSDoc */
-const Input = Input; /* local alias for Closure JSDoc */
-const Output = Output; /* local alias for Closure JSDoc */
-const EventEmitter = EventEmitter; /* local alias for Closure JSDoc */
-const ChangeDetectionStrategy = ChangeDetectionStrategy; /* local alias for Closure JSDoc */
-const OnInit = OnInit; /* local alias for Closure JSDoc */
-const OnDestroy = OnDestroy; /* local alias for Closure JSDoc */
-const Injector = Injector; /* local alias for Closure JSDoc */
-const Renderer = Renderer; /* local alias for Closure JSDoc */
-const ComponentRef = ComponentRef; /* local alias for Closure JSDoc */
-const ElementRef = ElementRef; /* local alias for Closure JSDoc */
-const TemplateRef = TemplateRef; /* local alias for Closure JSDoc */
-const ViewContainerRef = ViewContainerRef; /* local alias for Closure JSDoc */
-const ComponentFactoryResolver = ComponentFactoryResolver; /* local alias for Closure JSDoc */
-const NgZone = NgZone; /* local alias for Closure JSDoc */
+import { Component, Directive, Input, Output, EventEmitter, ChangeDetectionStrategy, Injector, Renderer, ElementRef, ViewContainerRef, ComponentFactoryResolver, NgZone } from '@angular/core/index';
 import { listenToTriggers } from '../util/triggers';
-const listenToTriggers = listenToTriggers; /* local alias for Closure JSDoc */
 import { positionElements } from '../util/positioning';
-const positionElements = positionElements; /* local alias for Closure JSDoc */
 import { PopupService } from '../util/popup';
-const PopupService = PopupService; /* local alias for Closure JSDoc */
 import { NgbPopoverConfig } from './popover-config';
-const NgbPopoverConfig = NgbPopoverConfig; /* local alias for Closure JSDoc */
-export let NgbPopoverWindow = class NgbPopoverWindow {
+export class NgbPopoverWindow {
     constructor() {
         this.placement = 'top';
     }
-};
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbPopoverWindow.prototype, "placement", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', String)
-], NgbPopoverWindow.prototype, "title", void 0);
-NgbPopoverWindow = __decorate([
-    /* local alias for Closure JSDoc */ Component({
-        selector: 'ngb-popover-window',
-        changeDetection: ChangeDetectionStrategy.OnPush,
-        host: { '[class]': '"popover show popover-" + placement', 'role': 'tooltip' },
-        template: `
+}
+NgbPopoverWindow.decorators = [
+    { type: Component, args: [{
+                selector: 'ngb-popover-window',
+                changeDetection: ChangeDetectionStrategy.OnPush,
+                host: { '[class]': '"popover show popover-" + placement', 'role': 'tooltip' },
+                template: `
     <h3 class="popover-title">{{title}}</h3><div class="popover-content"><ng-content></ng-content></div>
     `
-    }), 
-    __metadata('design:paramtypes', [])
-], NgbPopoverWindow);
+            },] },
+];
+/** @nocollapse */
+NgbPopoverWindow.ctorParameters = () => [];
+NgbPopoverWindow.propDecorators = {
+    'placement': [{ type: Input },],
+    'title': [{ type: Input },],
+};
 function NgbPopoverWindow_tsickle_Closure_declarations() {
-    /** @type {string} */
+    /** @type {?} */
+    NgbPopoverWindow.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbPopoverWindow.ctorParameters;
+    /** @type {?} */
+    NgbPopoverWindow.propDecorators;
+    /** @type {?} */
     NgbPopoverWindow.prototype.placement;
-    /** @type {string} */
+    /** @type {?} */
     NgbPopoverWindow.prototype.title;
 }
 /**
  * A lightweight, extensible directive for fancy popover creation.
  */
-export let NgbPopover = class NgbPopover {
+export class NgbPopover {
     /**
-     * @param {!ElementRef} _elementRef
-     * @param {!Renderer} _renderer
-     * @param {!Injector} injector
-     * @param {!ComponentFactoryResolver} componentFactoryResolver
-     * @param {!ViewContainerRef} viewContainerRef
-     * @param {!NgbPopoverConfig} config
-     * @param {!NgZone} ngZone
+     * @param {?} _elementRef
+     * @param {?} _renderer
+     * @param {?} injector
+     * @param {?} componentFactoryResolver
+     * @param {?} viewContainerRef
+     * @param {?} config
+     * @param {?} ngZone
      */
     constructor(_elementRef, _renderer, injector, componentFactoryResolver, viewContainerRef, config, ngZone) {
         this._elementRef = _elementRef;
@@ -100,7 +77,7 @@ export let NgbPopover = class NgbPopover {
      * Opens an element’s popover. This is considered a “manual” triggering of the popover.
      * The context is an optional value to be injected into the popover template when it is created.
      * @param {?=} context
-     * @return {void}
+     * @return {?}
      */
     open(context) {
         if (!this._windowRef) {
@@ -118,7 +95,7 @@ export let NgbPopover = class NgbPopover {
     }
     /**
      * Closes an element’s popover. This is considered a “manual” triggering of the popover.
-     * @return {void}
+     * @return {?}
      */
     close() {
         if (this._windowRef) {
@@ -129,7 +106,7 @@ export let NgbPopover = class NgbPopover {
     }
     /**
      * Toggles an element’s popover. This is considered a “manual” triggering of the popover.
-     * @return {void}
+     * @return {?}
      */
     toggle() {
         if (this._windowRef) {
@@ -141,104 +118,103 @@ export let NgbPopover = class NgbPopover {
     }
     /**
      * Returns whether or not the popover is currently being shown
-     * @return {boolean}
+     * @return {?}
      */
     isOpen() { return this._windowRef != null; }
     /**
-     * @return {void}
+     * @return {?}
      */
     ngOnInit() {
         this._unregisterListenersFn = listenToTriggers(this._renderer, this._elementRef.nativeElement, this.triggers, this.open.bind(this), this.close.bind(this), this.toggle.bind(this));
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     ngOnDestroy() {
         this.close();
         this._unregisterListenersFn();
         this._zoneSubscription.unsubscribe();
     }
+}
+NgbPopover.decorators = [
+    { type: Directive, args: [{ selector: '[ngbPopover]', exportAs: 'ngbPopover' },] },
+];
+/** @nocollapse */
+NgbPopover.ctorParameters = () => [
+    { type: ElementRef, },
+    { type: Renderer, },
+    { type: Injector, },
+    { type: ComponentFactoryResolver, },
+    { type: ViewContainerRef, },
+    { type: NgbPopoverConfig, },
+    { type: NgZone, },
+];
+NgbPopover.propDecorators = {
+    'ngbPopover': [{ type: Input },],
+    'popoverTitle': [{ type: Input },],
+    'placement': [{ type: Input },],
+    'triggers': [{ type: Input },],
+    'container': [{ type: Input },],
+    'shown': [{ type: Output },],
+    'hidden': [{ type: Output },],
 };
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbPopover.prototype, "ngbPopover", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', String)
-], NgbPopover.prototype, "popoverTitle", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbPopover.prototype, "placement", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', String)
-], NgbPopover.prototype, "triggers", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', String)
-], NgbPopover.prototype, "container", void 0);
-__decorate([
-    Output(), 
-    __metadata('design:type', Object)
-], NgbPopover.prototype, "shown", void 0);
-__decorate([
-    Output(), 
-    __metadata('design:type', Object)
-], NgbPopover.prototype, "hidden", void 0);
-NgbPopover = __decorate([
-    Directive({ selector: '[ngbPopover]', exportAs: 'ngbPopover' }), 
-    __metadata('design:paramtypes', [Object, Object, Object, Object, Object, Object, Object])
-], NgbPopover);
 function NgbPopover_tsickle_Closure_declarations() {
+    /** @type {?} */
+    NgbPopover.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbPopover.ctorParameters;
+    /** @type {?} */
+    NgbPopover.propDecorators;
     /**
      * Content to be displayed as popover.
-     * @type {(string|!TemplateRef<?>)}
+     * @type {?}
      */
     NgbPopover.prototype.ngbPopover;
     /**
      * Title of a popover.
-     * @type {string}
+     * @type {?}
      */
     NgbPopover.prototype.popoverTitle;
     /**
      * Placement of a popover. Accepts: "top", "bottom", "left", "right"
-     * @type {string}
+     * @type {?}
      */
     NgbPopover.prototype.placement;
     /**
      * Specifies events that should trigger. Supports a space separated list of event names.
-     * @type {string}
+     * @type {?}
      */
     NgbPopover.prototype.triggers;
     /**
      * A selector specifying the element the popover should be appended to.
      * Currently only supports "body".
-     * @type {string}
+     * @type {?}
      */
     NgbPopover.prototype.container;
     /**
      * Emits an event when the popover is shown
-     * @type {!EventEmitter<?>}
+     * @type {?}
      */
     NgbPopover.prototype.shown;
     /**
      * Emits an event when the popover is hidden
-     * @type {!EventEmitter<?>}
+     * @type {?}
      */
     NgbPopover.prototype.hidden;
-    /** @type {!PopupService<!NgbPopoverWindow>} */
+    /** @type {?} */
     NgbPopover.prototype._popupService;
-    /** @type {!ComponentRef<!NgbPopoverWindow>} */
+    /** @type {?} */
     NgbPopover.prototype._windowRef;
     /** @type {?} */
     NgbPopover.prototype._unregisterListenersFn;
     /** @type {?} */
     NgbPopover.prototype._zoneSubscription;
-    /** @type {!ElementRef} */
+    /** @type {?} */
     NgbPopover.prototype._elementRef;
-    /** @type {!Renderer} */
+    /** @type {?} */
     NgbPopover.prototype._renderer;
 }
 //# sourceMappingURL=popover.js.map

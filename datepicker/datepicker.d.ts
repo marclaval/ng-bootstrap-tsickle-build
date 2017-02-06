@@ -1,5 +1,5 @@
-import { OnChanges, TemplateRef, OnInit, SimpleChanges, EventEmitter } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
+import { OnChanges, TemplateRef, OnInit, SimpleChanges, EventEmitter } from '@angular/core/index';
+import { ControlValueAccessor } from '@angular/forms/index';
 import { NgbCalendar } from './ngb-calendar';
 import { NgbDate } from './ngb-date';
 import { NgbDatepickerService } from './datepicker-service';

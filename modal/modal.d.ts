@@ -1,4 +1,4 @@
-import { Injector, ComponentFactoryResolver } from '@angular/core';
+import { Injector, ComponentFactoryResolver } from '@angular/core/index';
 import { NgbModalStack } from './modal-stack';
 import { NgbModalRef } from './modal-ref';
 /**

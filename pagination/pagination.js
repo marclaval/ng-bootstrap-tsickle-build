@@ -1,31 +1,12 @@
-goog.module('_ng_bootstrap.ng_bootstrap.pagination.pagination'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/pagination/pagination.js'};var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { Component, EventEmitter, Input, Output, OnChanges, ChangeDetectionStrategy, SimpleChanges } from '@angular/core';
-const Component = Component; /* local alias for Closure JSDoc */
-const EventEmitter = EventEmitter; /* local alias for Closure JSDoc */
-const Input = Input; /* local alias for Closure JSDoc */
-const Output = Output; /* local alias for Closure JSDoc */
-const OnChanges = OnChanges; /* local alias for Closure JSDoc */
-const ChangeDetectionStrategy = ChangeDetectionStrategy; /* local alias for Closure JSDoc */
-const SimpleChanges = SimpleChanges; /* local alias for Closure JSDoc */
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core/index';
 import { getValueInRange, isNumber } from '../util/util';
-const getValueInRange = getValueInRange; /* local alias for Closure JSDoc */
-const isNumber = isNumber; /* local alias for Closure JSDoc */
 import { NgbPaginationConfig } from './pagination-config';
-const NgbPaginationConfig = NgbPaginationConfig; /* local alias for Closure JSDoc */
 /**
  * A directive that will take care of visualising a pagination bar and enable / disable buttons correctly!
  */
-export let NgbPagination = class NgbPagination {
+export class NgbPagination {
     /**
-     * @param {!NgbPaginationConfig} config
+     * @param {?} config
      */
     constructor(config) {
         this.pageCount = 0;
@@ -49,34 +30,34 @@ export let NgbPagination = class NgbPagination {
         this.size = config.size;
     }
     /**
-     * @return {boolean}
+     * @return {?}
      */
     hasPrevious() { return this.page > 1; }
     /**
-     * @return {boolean}
+     * @return {?}
      */
     hasNext() { return this.page < this.pageCount; }
     /**
-     * @param {number} pageNumber
-     * @return {void}
+     * @param {?} pageNumber
+     * @return {?}
      */
     selectPage(pageNumber) { this._updatePages(pageNumber); }
     /**
-     * @param {!SimpleChanges} changes
-     * @return {void}
+     * @param {?} changes
+     * @return {?}
      */
     ngOnChanges(changes) { this._updatePages(this.page); }
     /**
      * \@internal
      * @param {?} pageNumber
-     * @return {boolean}
+     * @return {?}
      */
     isEllipsis(pageNumber) { return pageNumber === -1; }
     /**
      * Appends ellipses and first/last page number to the displayed pages
-     * @param {number} start
-     * @param {number} end
-     * @return {void}
+     * @param {?} start
+     * @param {?} end
+     * @return {?}
      */
     _applyEllipses(start, end) {
         if (this.ellipses) {
@@ -101,13 +82,13 @@ export let NgbPagination = class NgbPagination {
      * Ex. for selected page = 6:
      * [5,*6*,7] for maxSize = 3
      * [4,5,*6*,7] for maxSize = 4
-     * @return {!Array<number, number>}
+     * @return {?}
      */
     _applyRotation() {
-        let /** @type {number} */ start = 0;
-        let /** @type {number} */ end = this.pageCount;
-        let /** @type {number} */ leftOffset = Math.floor(this.maxSize / 2);
-        let /** @type {number} */ rightOffset = this.maxSize % 2 === 0 ? leftOffset - 1 : leftOffset;
+        let /** @type {?} */ start = 0;
+        let /** @type {?} */ end = this.pageCount;
+        let /** @type {?} */ leftOffset = Math.floor(this.maxSize / 2);
+        let /** @type {?} */ rightOffset = this.maxSize % 2 === 0 ? leftOffset - 1 : leftOffset;
         if (this.page <= leftOffset) {
             // very beginning, no rotation -> [0..maxSize]
             end = this.maxSize;
@@ -125,28 +106,28 @@ export let NgbPagination = class NgbPagination {
     }
     /**
      * Paginates page numbers based on maxSize items per page
-     * @return {!Array<number, number>}
+     * @return {?}
      */
     _applyPagination() {
-        let /** @type {number} */ page = Math.ceil(this.page / this.maxSize) - 1;
-        let /** @type {number} */ start = page * this.maxSize;
-        let /** @type {number} */ end = start + this.maxSize;
+        let /** @type {?} */ page = Math.ceil(this.page / this.maxSize) - 1;
+        let /** @type {?} */ start = page * this.maxSize;
+        let /** @type {?} */ end = start + this.maxSize;
         return [start, end];
     }
     /**
      * @param {?} newPageNo
-     * @return {void}
+     * @return {?}
      */
     _setPageInRange(newPageNo) {
-        const /** @type {number} */ prevPageNo = this.page;
+        const /** @type {?} */ prevPageNo = this.page;
         this.page = getValueInRange(newPageNo, this.pageCount, 1);
         if (this.page !== prevPageNo) {
             this.pageChange.emit(this.page);
         }
     }
     /**
-     * @param {number} newPage
-     * @return {void}
+     * @param {?} newPage
+     * @return {?}
      */
     _updatePages(newPage) {
         this.pageCount = Math.ceil(this.collectionSize / this.pageSize);
@@ -155,15 +136,15 @@ export let NgbPagination = class NgbPagination {
         }
         // fill-in model needed to render pages
         this.pages.length = 0;
-        for (let /** @type {number} */ i = 1; i <= this.pageCount; i++) {
+        for (let /** @type {?} */ i = 1; i <= this.pageCount; i++) {
             this.pages.push(i);
         }
         // set page within 1..max range
         this._setPageInRange(newPage);
         // apply maxSize if necessary
         if (this.maxSize > 0 && this.pageCount > this.maxSize) {
-            let /** @type {number} */ start = 0;
-            let /** @type {number} */ end = this.pageCount;
+            let /** @type {?} */ start = 0;
+            let /** @type {?} */ end = this.pageCount;
             // either paginating or rotating page numbers
             if (this.rotate) {
                 [start, end] = this._applyRotation();
@@ -176,56 +157,12 @@ export let NgbPagination = class NgbPagination {
             this._applyEllipses(start, end);
         }
     }
-};
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbPagination.prototype, "disabled", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbPagination.prototype, "boundaryLinks", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbPagination.prototype, "directionLinks", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbPagination.prototype, "ellipses", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Boolean)
-], NgbPagination.prototype, "rotate", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Number)
-], NgbPagination.prototype, "collectionSize", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Number)
-], NgbPagination.prototype, "maxSize", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbPagination.prototype, "page", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Number)
-], NgbPagination.prototype, "pageSize", void 0);
-__decorate([
-    Output(), 
-    __metadata('design:type', Object)
-], NgbPagination.prototype, "pageChange", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbPagination.prototype, "size", void 0);
-NgbPagination = __decorate([
-    /* local alias for Closure JSDoc */ Component({
-        selector: 'ngb-pagination',
-        changeDetection: ChangeDetectionStrategy.OnPush,
-        template: `
+}
+NgbPagination.decorators = [
+    { type: Component, args: [{
+                selector: 'ngb-pagination',
+                changeDetection: ChangeDetectionStrategy.OnPush,
+                template: `
     <nav>
       <ul [class]="'pagination' + (size ? ' pagination-' + size : '')">
         <li *ngIf="boundaryLinks" class="page-item" 
@@ -264,69 +201,94 @@ NgbPagination = __decorate([
       </ul>
     </nav>
   `
-    }), 
-    __metadata('design:paramtypes', [Object])
-], NgbPagination);
+            },] },
+];
+/** @nocollapse */
+NgbPagination.ctorParameters = () => [
+    { type: NgbPaginationConfig, },
+];
+NgbPagination.propDecorators = {
+    'disabled': [{ type: Input },],
+    'boundaryLinks': [{ type: Input },],
+    'directionLinks': [{ type: Input },],
+    'ellipses': [{ type: Input },],
+    'rotate': [{ type: Input },],
+    'collectionSize': [{ type: Input },],
+    'maxSize': [{ type: Input },],
+    'page': [{ type: Input },],
+    'pageSize': [{ type: Input },],
+    'pageChange': [{ type: Output },],
+    'size': [{ type: Input },],
+};
 function NgbPagination_tsickle_Closure_declarations() {
-    /** @type {number} */
+    /** @type {?} */
+    NgbPagination.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbPagination.ctorParameters;
+    /** @type {?} */
+    NgbPagination.propDecorators;
+    /** @type {?} */
     NgbPagination.prototype.pageCount;
-    /** @type {!Array<number>} */
+    /** @type {?} */
     NgbPagination.prototype.pages;
     /**
      * Whether to disable buttons from user input
-     * @type {boolean}
+     * @type {?}
      */
     NgbPagination.prototype.disabled;
     /**
      *  Whether to show the "First" and "Last" page links
-     * @type {boolean}
+     * @type {?}
      */
     NgbPagination.prototype.boundaryLinks;
     /**
      *  Whether to show the "Next" and "Previous" page links
-     * @type {boolean}
+     * @type {?}
      */
     NgbPagination.prototype.directionLinks;
     /**
      *  Whether to show ellipsis symbols and first/last page numbers when maxSize > number of pages
-     * @type {boolean}
+     * @type {?}
      */
     NgbPagination.prototype.ellipses;
     /**
      *  Whether to rotate pages when maxSize > number of pages.
      *  Current page will be in the middle
-     * @type {boolean}
+     * @type {?}
      */
     NgbPagination.prototype.rotate;
     /**
      *  Number of items in collection.
-     * @type {number}
+     * @type {?}
      */
     NgbPagination.prototype.collectionSize;
     /**
      *  Maximum number of pages to display.
-     * @type {number}
+     * @type {?}
      */
     NgbPagination.prototype.maxSize;
     /**
      *  Current page.
-     * @type {number}
+     * @type {?}
      */
     NgbPagination.prototype.page;
     /**
      *  Number of items per page.
-     * @type {number}
+     * @type {?}
      */
     NgbPagination.prototype.pageSize;
     /**
      *  An event fired when the page is changed.
      *  Event's payload equals to the newly selected page.
-     * @type {!EventEmitter<number>}
+     * @type {?}
      */
     NgbPagination.prototype.pageChange;
     /**
      * Pagination display size: small or large
-     * @type {string}
+     * @type {?}
      */
     NgbPagination.prototype.size;
 }

@@ -1,4 +1,4 @@
-import { EventEmitter, ElementRef, Renderer, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { EventEmitter, ElementRef, Renderer, OnInit, AfterViewInit, OnDestroy } from '@angular/core/index';
 export declare class NgbModalWindow implements OnInit, AfterViewInit, OnDestroy {
     private _elRef;
     private _renderer;

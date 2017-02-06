@@ -1,34 +1,6 @@
-goog.module('_ng_bootstrap.ng_bootstrap.typeahead.typeahead_window'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/typeahead/typeahead-window.js'};var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { Component, Input, Output, EventEmitter, TemplateRef, OnInit } from '@angular/core';
-const Component = Component; /* local alias for Closure JSDoc */
-const Input = Input; /* local alias for Closure JSDoc */
-const Output = Output; /* local alias for Closure JSDoc */
-const EventEmitter = EventEmitter; /* local alias for Closure JSDoc */
-const TemplateRef = TemplateRef; /* local alias for Closure JSDoc */
-const OnInit = OnInit; /* local alias for Closure JSDoc */
+import { Component, Input, Output, EventEmitter } from '@angular/core/index';
 import { toString } from '../util/util';
-const toString = toString; /* local alias for Closure JSDoc */
-/** @record */
-export function ResultTemplateContext() { }
-/**
- * Your typeahead result data model
- * @type {?}
- */
-ResultTemplateContext.prototype.result;
-/**
- * Search term from the input used to get current result
- * @type {string}
- */
-ResultTemplateContext.prototype.term;
-export let NgbTypeaheadWindow = class NgbTypeaheadWindow {
+export class NgbTypeaheadWindow {
     constructor() {
         this.activeIdx = 0;
         /**
@@ -50,12 +22,12 @@ export let NgbTypeaheadWindow = class NgbTypeaheadWindow {
      */
     getActive() { return this.results[this.activeIdx]; }
     /**
-     * @param {number} activeIdx
-     * @return {void}
+     * @param {?} activeIdx
+     * @return {?}
      */
     markActive(activeIdx) { this.activeIdx = activeIdx; }
     /**
-     * @return {void}
+     * @return {?}
      */
     next() {
         if (this.activeIdx === this.results.length - 1) {
@@ -66,7 +38,7 @@ export let NgbTypeaheadWindow = class NgbTypeaheadWindow {
         }
     }
     /**
-     * @return {void}
+     * @return {?}
      */
     prev() {
         if (this.activeIdx < 0) {
@@ -81,44 +53,20 @@ export let NgbTypeaheadWindow = class NgbTypeaheadWindow {
     }
     /**
      * @param {?} item
-     * @return {void}
+     * @return {?}
      */
     select(item) { this.selectEvent.emit(item); }
     /**
-     * @return {void}
+     * @return {?}
      */
     ngOnInit() { this.activeIdx = this.focusFirst ? 0 : -1; }
-};
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbTypeaheadWindow.prototype, "focusFirst", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbTypeaheadWindow.prototype, "results", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', String)
-], NgbTypeaheadWindow.prototype, "term", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbTypeaheadWindow.prototype, "formatter", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], NgbTypeaheadWindow.prototype, "resultTemplate", void 0);
-__decorate([
-    Output('select'), 
-    __metadata('design:type', Object)
-], NgbTypeaheadWindow.prototype, "selectEvent", void 0);
-NgbTypeaheadWindow = __decorate([
-    Component({
-        selector: 'ngb-typeahead-window',
-        exportAs: 'ngbTypeaheadWindow',
-        host: { 'class': 'dropdown-menu', 'style': 'display: block' },
-        template: `
+}
+NgbTypeaheadWindow.decorators = [
+    { type: Component, args: [{
+                selector: 'ngb-typeahead-window',
+                exportAs: 'ngbTypeaheadWindow',
+                host: { 'class': 'dropdown-menu', 'style': 'display: block' },
+                template: `
     <template #rt let-result="result" let-term="term" let-formatter="formatter">
       <ngb-highlight [result]="formatter(result)" [term]="term"></ngb-highlight>
     </template>
@@ -131,15 +79,33 @@ NgbTypeaheadWindow = __decorate([
       </button>
     </template>
   `
-    }), 
-    __metadata('design:paramtypes', [])
-], NgbTypeaheadWindow);
+            },] },
+];
+/** @nocollapse */
+NgbTypeaheadWindow.ctorParameters = () => [];
+NgbTypeaheadWindow.propDecorators = {
+    'focusFirst': [{ type: Input },],
+    'results': [{ type: Input },],
+    'term': [{ type: Input },],
+    'formatter': [{ type: Input },],
+    'resultTemplate': [{ type: Input },],
+    'selectEvent': [{ type: Output, args: ['select',] },],
+};
 function NgbTypeaheadWindow_tsickle_Closure_declarations() {
-    /** @type {number} */
+    /** @type {?} */
+    NgbTypeaheadWindow.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbTypeaheadWindow.ctorParameters;
+    /** @type {?} */
+    NgbTypeaheadWindow.propDecorators;
+    /** @type {?} */
     NgbTypeaheadWindow.prototype.activeIdx;
     /**
      * Flag indicating if the first row should be active initially
-     * @type {boolean}
+     * @type {?}
      */
     NgbTypeaheadWindow.prototype.focusFirst;
     /**
@@ -149,23 +115,23 @@ function NgbTypeaheadWindow_tsickle_Closure_declarations() {
     NgbTypeaheadWindow.prototype.results;
     /**
      * Search term used to get current results
-     * @type {string}
+     * @type {?}
      */
     NgbTypeaheadWindow.prototype.term;
     /**
      * A function used to format a given result before display. This function should return a formatted string without any
      * HTML markup
-     * @type {function(?): string}
+     * @type {?}
      */
     NgbTypeaheadWindow.prototype.formatter;
     /**
      * A template to override a matching result default display
-     * @type {!TemplateRef<!ResultTemplateContext>}
+     * @type {?}
      */
     NgbTypeaheadWindow.prototype.resultTemplate;
     /**
      * Event raised when user selects a particular result row
-     * @type {!EventEmitter<?>}
+     * @type {?}
      */
     NgbTypeaheadWindow.prototype.selectEvent;
 }

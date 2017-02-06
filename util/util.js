@@ -1,50 +1,50 @@
-goog.module('_ng_bootstrap.ng_bootstrap.util.util'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/util/util.js'};/**
+/**
  * @param {?} value
- * @return {number}
+ * @return {?}
  */
 export function toInteger(value) {
     return parseInt(`${value}`, 10);
 }
 /**
  * @param {?} value
- * @return {string}
+ * @return {?}
  */
 export function toString(value) {
     return (value !== undefined && value !== null) ? `${value}` : '';
 }
 /**
- * @param {number} value
- * @param {number} max
- * @param {number=} min
- * @return {number}
+ * @param {?} value
+ * @param {?} max
+ * @param {?=} min
+ * @return {?}
  */
 export function getValueInRange(value, max, min = 0) {
     return Math.max(Math.min(value, max), min);
 }
 /**
  * @param {?} value
- * @return {boolean}
+ * @return {?}
  */
 export function isString(value) {
     return typeof value === 'string';
 }
 /**
  * @param {?} value
- * @return {boolean}
+ * @return {?}
  */
 export function isNumber(value) {
     return !isNaN(toInteger(value));
 }
 /**
  * @param {?} value
- * @return {boolean}
+ * @return {?}
  */
 export function isDefined(value) {
     return value !== undefined && value !== null;
 }
 /**
- * @param {number} value
- * @return {string}
+ * @param {?} value
+ * @return {?}
  */
 export function padNumber(value) {
     if (isNumber(value)) {

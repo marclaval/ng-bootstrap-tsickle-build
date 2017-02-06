@@ -2,8 +2,9 @@
 A tsickled-ES6 distribution of ng-bootstrap
 
 Steps to build:
-- clone ng-bootstrap, and cd into it
-- `npm install tsickle`
+- clone mlaval/ng-bootstrap, and cd into it
+- `git checkout ng2.4.6`
+- `npm install`
 - add the following tsconfig.json file in the src folder:
 ```
 {
@@ -31,11 +32,12 @@ Steps to build:
     "annotateForClosureCompiler": true
   }
 }
-
 ```
-- `./node_modules/.bin/ngc -p src --declaration`
-- delete the line `"declaration": true,` in the tsconfig.json file
-- `./node_modules/.bin/tsickle -- -p src`
+- `node node_modules/@angular/tsc-wrapped/src/main -p src/tsconfig.json`
+- in all generated files:
+  - replace `from '@angular/core'` by `from '@angular/core/index'`
+  - replace `from '@angular/common'` by `from '@angular/common/index'`
+  - replace `from '@angular/forms'` by `from '@angular/forms/index'`
 - copy the content of tmp/ng-bootstrap to here
 - create package.json as follows:
 ```
@@ -61,9 +63,9 @@ Steps to build:
   "module": "index.js",
   "typings": "index.d.ts",
   "peerDependencies": {
-    "@angular/core": "^2.3.1",
-    "@angular/common": "^2.3.1",
-    "@angular/forms": "^2.3.1"
+    "@angular/core": "^2.4.6",
+    "@angular/common": "^2.4.6",
+    "@angular/forms": "^2.4.6"
   }
 }
 ```

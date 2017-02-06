@@ -1,4 +1,4 @@
-import { ModuleWithProviders } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core/index';
 export { NgbHighlight } from './highlight';
 export { NgbTypeaheadWindow } from './typeahead-window';
 export { NgbTypeaheadConfig } from './typeahead-config';

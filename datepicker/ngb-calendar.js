@@ -1,124 +1,120 @@
-goog.module('_ng_bootstrap.ng_bootstrap.datepicker.ngb_calendar'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar.js'};var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 import { NgbDate } from './ngb-date';
-const NgbDate = NgbDate; /* local alias for Closure JSDoc */
-import { Injectable } from '@angular/core';
-const Injectable = Injectable; /* local alias for Closure JSDoc */
+import { Injectable } from '@angular/core/index';
 import { isNumber } from '../util/util';
-const isNumber = isNumber; /* local alias for Closure JSDoc */
 /**
- * @param {!Date} jsDate
- * @return {!NgbDate}
+ * @param {?} jsDate
+ * @return {?}
  */
 function fromJSDate(jsDate) {
     return new NgbDate(jsDate.getFullYear(), jsDate.getMonth() + 1, jsDate.getDate());
 }
 /**
- * @param {!NgbDate} date
- * @return {!Date}
+ * @param {?} date
+ * @return {?}
  */
 function toJSDate(date) {
-    const /** @type {!Date} */ jsDate = new Date(date.year, date.month - 1, date.day);
+    const /** @type {?} */ jsDate = new Date(date.year, date.month - 1, date.day);
     // this is done avoid 30 -> 1930 conversion
     if (!isNaN(jsDate.getTime())) {
         jsDate.setFullYear(date.year);
     }
     return jsDate;
 }
-/** @typedef {string} */
-exports.NgbPeriod;
 /**
  * @abstract
  */
-export let NgbCalendar = class NgbCalendar {
+export class NgbCalendar {
     /**
      * @abstract
-     * @return {number}
+     * @return {?}
      */
     getDaysPerWeek() { }
     /**
      * @abstract
-     * @return {!Array<number>}
+     * @return {?}
      */
     getMonths() { }
     /**
      * @abstract
-     * @return {number}
+     * @return {?}
      */
     getWeeksPerMonth() { }
     /**
      * @abstract
-     * @param {!NgbDate} date
-     * @return {number}
+     * @param {?} date
+     * @return {?}
      */
     getWeekday(date) { }
     /**
      * @abstract
-     * @param {!NgbDate} date
-     * @param {string=} period
-     * @param {number=} number
-     * @return {!NgbDate}
+     * @param {?} date
+     * @param {?=} period
+     * @param {?=} number
+     * @return {?}
      */
     getNext(date, period, number) { }
     /**
      * @abstract
-     * @param {!NgbDate} date
-     * @param {string=} period
-     * @param {number=} number
-     * @return {!NgbDate}
+     * @param {?} date
+     * @param {?=} period
+     * @param {?=} number
+     * @return {?}
      */
     getPrev(date, period, number) { }
     /**
      * @abstract
-     * @param {!Array<!NgbDate>} week
-     * @param {number} firstDayOfWeek
-     * @return {number}
+     * @param {?} week
+     * @param {?} firstDayOfWeek
+     * @return {?}
      */
     getWeekNumber(week, firstDayOfWeek) { }
     /**
      * @abstract
-     * @return {!NgbDate}
+     * @return {?}
      */
     getToday() { }
     /**
      * @abstract
-     * @param {!NgbDate} date
-     * @return {boolean}
+     * @param {?} date
+     * @return {?}
      */
     isValid(date) { }
-};
-NgbCalendar = __decorate([
-    Injectable(), 
-    __metadata('design:paramtypes', [])
-], NgbCalendar);
-export let NgbCalendarGregorian = class NgbCalendarGregorian extends NgbCalendar {
+}
+NgbCalendar.decorators = [
+    { type: Injectable },
+];
+/** @nocollapse */
+NgbCalendar.ctorParameters = () => [];
+function NgbCalendar_tsickle_Closure_declarations() {
+    /** @type {?} */
+    NgbCalendar.decorators;
     /**
-     * @return {number}
+     * @nocollapse
+     * @type {?}
+     */
+    NgbCalendar.ctorParameters;
+}
+export class NgbCalendarGregorian extends NgbCalendar {
+    /**
+     * @return {?}
      */
     getDaysPerWeek() { return 7; }
     /**
-     * @return {!Array<number>}
+     * @return {?}
      */
     getMonths() { return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; }
     /**
-     * @return {number}
+     * @return {?}
      */
     getWeeksPerMonth() { return 6; }
     /**
-     * @param {!NgbDate} date
-     * @param {string=} period
-     * @param {number=} number
-     * @return {!NgbDate}
+     * @param {?} date
+     * @param {?=} period
+     * @param {?=} number
+     * @return {?}
      */
     getNext(date, period = 'd', number = 1) {
-        let /** @type {!Date} */ jsDate = toJSDate(date);
+        let /** @type {?} */ jsDate = toJSDate(date);
         switch (period) {
             case 'y':
                 return new NgbDate(date.year + number, 1, 1);
@@ -134,56 +130,66 @@ export let NgbCalendarGregorian = class NgbCalendarGregorian extends NgbCalendar
         return fromJSDate(jsDate);
     }
     /**
-     * @param {!NgbDate} date
-     * @param {string=} period
-     * @param {number=} number
-     * @return {!NgbDate}
+     * @param {?} date
+     * @param {?=} period
+     * @param {?=} number
+     * @return {?}
      */
     getPrev(date, period = 'd', number = 1) { return this.getNext(date, period, -number); }
     /**
-     * @param {!NgbDate} date
-     * @return {number}
+     * @param {?} date
+     * @return {?}
      */
     getWeekday(date) {
-        let /** @type {!Date} */ jsDate = toJSDate(date);
-        let /** @type {number} */ day = jsDate.getDay();
+        let /** @type {?} */ jsDate = toJSDate(date);
+        let /** @type {?} */ day = jsDate.getDay();
         // in JS Date Sun=0, in ISO 8601 Sun=7
         return day === 0 ? 7 : day;
     }
     /**
-     * @param {!Array<!NgbDate>} week
-     * @param {number} firstDayOfWeek
-     * @return {number}
+     * @param {?} week
+     * @param {?} firstDayOfWeek
+     * @return {?}
      */
     getWeekNumber(week, firstDayOfWeek) {
         // in JS Date Sun=0, in ISO 8601 Sun=7
         if (firstDayOfWeek === 7) {
             firstDayOfWeek = 0;
         }
-        const /** @type {number} */ thursdayIndex = (4 + 7 - firstDayOfWeek) % 7;
-        let /** @type {!NgbDate} */ date = week[thursdayIndex];
-        const /** @type {!Date} */ jsDate = toJSDate(date);
+        const /** @type {?} */ thursdayIndex = (4 + 7 - firstDayOfWeek) % 7;
+        let /** @type {?} */ date = week[thursdayIndex];
+        const /** @type {?} */ jsDate = toJSDate(date);
         jsDate.setDate(jsDate.getDate() + 4 - (jsDate.getDay() || 7)); // Thursday
-        const /** @type {number} */ time = jsDate.getTime();
+        const /** @type {?} */ time = jsDate.getTime();
         jsDate.setMonth(0); // Compare with Jan 1
         jsDate.setDate(1);
         return Math.floor(Math.round((time - jsDate.getTime()) / 86400000) / 7) + 1;
     }
     /**
-     * @return {!NgbDate}
+     * @return {?}
      */
     getToday() { return fromJSDate(new Date()); }
     /**
-     * @param {!NgbDate} date
-     * @return {boolean}
+     * @param {?} date
+     * @return {?}
      */
     isValid(date) {
         return date && isNumber(date.year) && isNumber(date.month) && isNumber(date.day) &&
             !isNaN(toJSDate(date).getTime());
     }
-};
-NgbCalendarGregorian = __decorate([
-    Injectable(), 
-    __metadata('design:paramtypes', [])
-], NgbCalendarGregorian);
+}
+NgbCalendarGregorian.decorators = [
+    { type: Injectable },
+];
+/** @nocollapse */
+NgbCalendarGregorian.ctorParameters = () => [];
+function NgbCalendarGregorian_tsickle_Closure_declarations() {
+    /** @type {?} */
+    NgbCalendarGregorian.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbCalendarGregorian.ctorParameters;
+}
 //# sourceMappingURL=ngb-calendar.js.map

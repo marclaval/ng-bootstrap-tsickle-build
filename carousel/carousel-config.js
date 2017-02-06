@@ -1,36 +1,34 @@
-goog.module('_ng_bootstrap.ng_bootstrap.carousel.carousel_config'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/carousel/carousel-config.js'};var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { Injectable } from '@angular/core';
-const Injectable = Injectable; /* local alias for Closure JSDoc */
+import { Injectable } from '@angular/core/index';
 /**
  * Configuration service for the NgbCarousel component.
  * You can inject this service, typically in your root component, and customize the values of its properties in
  * order to provide default values for all the carousels used in the application.
  */
-export let NgbCarouselConfig = class NgbCarouselConfig {
+export class NgbCarouselConfig {
     constructor() {
         this.interval = 5000;
         this.wrap = true;
         this.keyboard = true;
     }
-};
-NgbCarouselConfig = __decorate([
-    /* local alias for Closure JSDoc */ Injectable(), 
-    __metadata('design:paramtypes', [])
-], NgbCarouselConfig);
+}
+NgbCarouselConfig.decorators = [
+    { type: Injectable },
+];
+/** @nocollapse */
+NgbCarouselConfig.ctorParameters = () => [];
 function NgbCarouselConfig_tsickle_Closure_declarations() {
-    /** @type {number} */
+    /** @type {?} */
+    NgbCarouselConfig.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbCarouselConfig.ctorParameters;
+    /** @type {?} */
     NgbCarouselConfig.prototype.interval;
-    /** @type {boolean} */
+    /** @type {?} */
     NgbCarouselConfig.prototype.wrap;
-    /** @type {boolean} */
+    /** @type {?} */
     NgbCarouselConfig.prototype.keyboard;
 }
 //# sourceMappingURL=carousel-config.js.map

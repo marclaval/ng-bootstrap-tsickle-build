@@ -1,43 +1,17 @@
-goog.module('_ng_bootstrap.ng_bootstrap.modal.modal_container'); exports = {}; var module = {id: '@ng-bootstrap/ng-bootstrap/modal/modal-container.js'};var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-import { Directive, Injector, ReflectiveInjector, Renderer, TemplateRef, ViewContainerRef, ComponentFactoryResolver, ComponentFactory, ComponentRef } from '@angular/core';
-const Directive = Directive; /* local alias for Closure JSDoc */
-const Injector = Injector; /* local alias for Closure JSDoc */
-const ReflectiveInjector = ReflectiveInjector; /* local alias for Closure JSDoc */
-const Renderer = Renderer; /* local alias for Closure JSDoc */
-const TemplateRef = TemplateRef; /* local alias for Closure JSDoc */
-const ViewContainerRef = ViewContainerRef; /* local alias for Closure JSDoc */
-const ComponentFactoryResolver = ComponentFactoryResolver; /* local alias for Closure JSDoc */
-const ComponentFactory = ComponentFactory; /* local alias for Closure JSDoc */
-const ComponentRef = ComponentRef; /* local alias for Closure JSDoc */
+import { Directive, Injector, ReflectiveInjector, Renderer, TemplateRef, ViewContainerRef, ComponentFactoryResolver } from '@angular/core/index';
 import { isDefined, isString } from '../util/util';
-const isDefined = isDefined; /* local alias for Closure JSDoc */
-const isString = isString; /* local alias for Closure JSDoc */
 import { ContentRef } from '../util/popup';
-const ContentRef = ContentRef; /* local alias for Closure JSDoc */
 import { NgbModalBackdrop } from './modal-backdrop';
-const NgbModalBackdrop = NgbModalBackdrop; /* local alias for Closure JSDoc */
 import { NgbModalWindow } from './modal-window';
-const NgbModalWindow = NgbModalWindow; /* local alias for Closure JSDoc */
 import { NgbModalStack } from './modal-stack';
-const NgbModalStack = NgbModalStack; /* local alias for Closure JSDoc */
 import { NgbActiveModal, NgbModalRef } from './modal-ref';
-const NgbActiveModal = NgbActiveModal; /* local alias for Closure JSDoc */
-const NgbModalRef = NgbModalRef; /* local alias for Closure JSDoc */
-export let NgbModalContainer = class NgbModalContainer {
+export class NgbModalContainer {
     /**
-     * @param {!Injector} _injector
-     * @param {!Renderer} _renderer
-     * @param {!ViewContainerRef} _viewContainerRef
-     * @param {!ComponentFactoryResolver} _componentFactoryResolver
-     * @param {!NgbModalStack} ngbModalStack
+     * @param {?} _injector
+     * @param {?} _renderer
+     * @param {?} _viewContainerRef
+     * @param {?} _componentFactoryResolver
+     * @param {?} ngbModalStack
      */
     constructor(_injector, _renderer, _viewContainerRef, _componentFactoryResolver, ngbModalStack) {
         this._injector = _injector;
@@ -49,18 +23,18 @@ export let NgbModalContainer = class NgbModalContainer {
         ngbModalStack.registerContainer(this);
     }
     /**
-     * @param {!ComponentFactoryResolver} moduleCFR
-     * @param {!Injector} contentInjector
-     * @param {(string|!TemplateRef<?>)} content
+     * @param {?} moduleCFR
+     * @param {?} contentInjector
+     * @param {?} content
      * @param {?} options
-     * @return {!NgbModalRef}
+     * @return {?}
      */
     open(moduleCFR, contentInjector, content, options) {
-        const /** @type {!NgbActiveModal} */ activeModal = new NgbActiveModal();
-        const /** @type {!ContentRef} */ contentRef = this._getContentRef(moduleCFR, contentInjector, content, activeModal);
-        let /** @type {!ComponentRef<!NgbModalWindow>} */ windowCmptRef;
-        let /** @type {!ComponentRef<!NgbModalBackdrop>} */ backdropCmptRef;
-        let /** @type {!NgbModalRef} */ ngbModalRef;
+        const /** @type {?} */ activeModal = new NgbActiveModal();
+        const /** @type {?} */ contentRef = this._getContentRef(moduleCFR, contentInjector, content, activeModal);
+        let /** @type {?} */ windowCmptRef;
+        let /** @type {?} */ backdropCmptRef;
+        let /** @type {?} */ ngbModalRef;
         if (options.backdrop !== false) {
             backdropCmptRef = this._viewContainerRef.createComponent(this._backdropFactory, 0, this._injector);
         }
@@ -72,9 +46,9 @@ export let NgbModalContainer = class NgbModalContainer {
         return ngbModalRef;
     }
     /**
-     * @param {!NgbModalWindow} windowInstance
-     * @param {!Object} options
-     * @return {void}
+     * @param {?} windowInstance
+     * @param {?} options
+     * @return {?}
      */
     _applyWindowOptions(windowInstance, options) {
         ['backdrop', 'keyboard', 'size', 'windowClass'].forEach((optionName) => {
@@ -84,47 +58,61 @@ export let NgbModalContainer = class NgbModalContainer {
         });
     }
     /**
-     * @param {!ComponentFactoryResolver} moduleCFR
-     * @param {!Injector} contentInjector
+     * @param {?} moduleCFR
+     * @param {?} contentInjector
      * @param {?} content
-     * @param {!NgbActiveModal} context
-     * @return {!ContentRef}
+     * @param {?} context
+     * @return {?}
      */
     _getContentRef(moduleCFR, contentInjector, content, context) {
         if (!content) {
             return new ContentRef([]);
         }
         else if (content instanceof TemplateRef) {
-            const /** @type {!EmbeddedViewRef<!NgbActiveModal>} */ viewRef = this._viewContainerRef.createEmbeddedView(/** @type {!TemplateRef<!NgbActiveModal>} */ (content), context);
+            const /** @type {?} */ viewRef = this._viewContainerRef.createEmbeddedView(/** @type {?} */ (content), context);
             return new ContentRef([viewRef.rootNodes], viewRef);
         }
         else if (isString(content)) {
             return new ContentRef([[this._renderer.createText(null, `${content}`)]]);
         }
         else {
-            const /** @type {!ComponentFactory<?>} */ contentCmptFactory = moduleCFR.resolveComponentFactory(content);
-            const /** @type {!ReflectiveInjector} */ modalContentInjector = ReflectiveInjector.resolveAndCreate([{ provide: NgbActiveModal, useValue: context }], contentInjector);
-            const /** @type {!ComponentRef<?>} */ componentRef = this._viewContainerRef.createComponent(contentCmptFactory, 0, modalContentInjector);
+            const /** @type {?} */ contentCmptFactory = moduleCFR.resolveComponentFactory(content);
+            const /** @type {?} */ modalContentInjector = ReflectiveInjector.resolveAndCreate([{ provide: NgbActiveModal, useValue: context }], contentInjector);
+            const /** @type {?} */ componentRef = this._viewContainerRef.createComponent(contentCmptFactory, 0, modalContentInjector);
             return new ContentRef([[componentRef.location.nativeElement]], componentRef.hostView, componentRef);
         }
     }
-};
-NgbModalContainer = __decorate([
-    /* local alias for Closure JSDoc */ Directive({ selector: 'template[ngbModalContainer]' }), 
-    __metadata('design:paramtypes', [Object, Object, Object, Object, Object])
-], NgbModalContainer);
+}
+NgbModalContainer.decorators = [
+    { type: Directive, args: [{ selector: 'template[ngbModalContainer]' },] },
+];
+/** @nocollapse */
+NgbModalContainer.ctorParameters = () => [
+    { type: Injector, },
+    { type: Renderer, },
+    { type: ViewContainerRef, },
+    { type: ComponentFactoryResolver, },
+    { type: NgbModalStack, },
+];
 function NgbModalContainer_tsickle_Closure_declarations() {
-    /** @type {!ComponentFactory<!NgbModalBackdrop>} */
+    /** @type {?} */
+    NgbModalContainer.decorators;
+    /**
+     * @nocollapse
+     * @type {?}
+     */
+    NgbModalContainer.ctorParameters;
+    /** @type {?} */
     NgbModalContainer.prototype._backdropFactory;
-    /** @type {!ComponentFactory<!NgbModalWindow>} */
+    /** @type {?} */
     NgbModalContainer.prototype._windowFactory;
-    /** @type {!Injector} */
+    /** @type {?} */
     NgbModalContainer.prototype._injector;
-    /** @type {!Renderer} */
+    /** @type {?} */
     NgbModalContainer.prototype._renderer;
-    /** @type {!ViewContainerRef} */
+    /** @type {?} */
     NgbModalContainer.prototype._viewContainerRef;
-    /** @type {!ComponentFactoryResolver} */
+    /** @type {?} */
     NgbModalContainer.prototype._componentFactoryResolver;
 }
 //# sourceMappingURL=modal-container.js.map

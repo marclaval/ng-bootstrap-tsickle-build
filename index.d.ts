@@ -1,4 +1,4 @@
-import { ModuleWithProviders } from '@angular/core/index';
+import { ModuleWithProviders } from '@angular/core';
 export { NgbAccordionModule, NgbPanelChangeEvent, NgbAccordionConfig, NgbAccordion, NgbPanel, NgbPanelTitle, NgbPanelContent } from './accordion/accordion.module';
 export { NgbAlertModule, NgbAlertConfig, NgbAlert } from './alert/alert.module';
 export { NgbButtonsModule, NgbRadioGroup } from './buttons/radio.module';

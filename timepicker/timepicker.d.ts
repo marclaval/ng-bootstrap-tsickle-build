@@ -1,5 +1,5 @@
-import { OnChanges, SimpleChanges } from '@angular/core/index';
-import { ControlValueAccessor } from '@angular/forms/index';
+import { OnChanges, SimpleChanges } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
 import { NgbTime } from './ngb-time';
 import { NgbTimepickerConfig } from './timepicker-config';
 /**

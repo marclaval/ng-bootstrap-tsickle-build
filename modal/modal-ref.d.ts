@@ -1,4 +1,4 @@
-import { ComponentRef, ViewContainerRef } from '@angular/core/index';
+import { ComponentRef, ViewContainerRef } from '@angular/core';
 import { NgbModalBackdrop } from './modal-backdrop';
 import { NgbModalWindow } from './modal-window';
 import { ContentRef } from '../util/popup';

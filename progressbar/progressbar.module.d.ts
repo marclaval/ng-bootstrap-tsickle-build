@@ -1,4 +1,4 @@
-import { ModuleWithProviders } from '@angular/core/index';
+import { ModuleWithProviders } from '@angular/core';
 export { NgbProgressbar } from './progressbar';
 export { NgbProgressbarConfig } from './progressbar-config';
 export declare class NgbProgressbarModule {

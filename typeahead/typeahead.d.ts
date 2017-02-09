@@ -1,5 +1,5 @@
-import { OnInit, EventEmitter, ComponentFactoryResolver, ViewContainerRef, Injector, Renderer, ElementRef, TemplateRef, OnDestroy, NgZone } from '@angular/core/index';
-import { ControlValueAccessor } from '@angular/forms/index';
+import { OnInit, EventEmitter, ComponentFactoryResolver, ViewContainerRef, Injector, Renderer, ElementRef, TemplateRef, OnDestroy, NgZone } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { ResultTemplateContext } from './typeahead-window';
 import { NgbTypeaheadConfig } from './typeahead-config';

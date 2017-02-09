@@ -1,4 +1,4 @@
-import { EventEmitter, OnChanges, SimpleChanges } from '@angular/core/index';
+import { EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { NgbPaginationConfig } from './pagination-config';
 /**
  * A directive that will take care of visualising a pagination bar and enable / disable buttons correctly!

@@ -3,7 +3,7 @@ A tsickled-ES6 distribution of ng-bootstrap
 
 Steps to build:
 - clone mlaval/ng-bootstrap, and cd into it
-- `git checkout ng2.4.6`
+- `git checkout ng4.0.0-beta.6`
 - `npm install`
 - add the following tsconfig.json file in the src folder:
 ```
@@ -34,10 +34,6 @@ Steps to build:
 }
 ```
 - `node node_modules/@angular/tsc-wrapped/src/main -p src/tsconfig.json`
-- in all generated files:
-  - replace `from '@angular/core'` by `from '@angular/core/index'`
-  - replace `from '@angular/common'` by `from '@angular/common/index'`
-  - replace `from '@angular/forms'` by `from '@angular/forms/index'`
 - copy the content of tmp/ng-bootstrap to here
 - create package.json as follows:
 ```
@@ -63,9 +59,9 @@ Steps to build:
   "module": "index.js",
   "typings": "index.d.ts",
   "peerDependencies": {
-    "@angular/core": "^2.4.6",
-    "@angular/common": "^2.4.6",
-    "@angular/forms": "^2.4.6"
+    "@angular/core": "^4.0.0-beta.6",
+    "@angular/common": "^4.0.0-beta.6",
+    "@angular/forms": "^4.0.0-beta.6"
   }
 }
 ```

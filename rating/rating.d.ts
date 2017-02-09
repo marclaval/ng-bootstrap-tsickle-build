@@ -1,6 +1,6 @@
-import { EventEmitter, OnInit, TemplateRef, OnChanges, SimpleChanges, ChangeDetectorRef } from '@angular/core/index';
+import { EventEmitter, OnInit, TemplateRef, OnChanges, SimpleChanges, ChangeDetectorRef } from '@angular/core';
 import { NgbRatingConfig } from './rating-config';
-import { ControlValueAccessor } from '@angular/forms/index';
+import { ControlValueAccessor } from '@angular/forms';
 /**
  * Context for the custom star display template
  */

@@ -1,4 +1,4 @@
-import { ModuleWithProviders } from '@angular/core/index';
+import { ModuleWithProviders } from '@angular/core';
 export { NgbTooltipConfig } from './tooltip-config';
 export { NgbTooltip } from './tooltip';
 export declare class NgbTooltipModule {

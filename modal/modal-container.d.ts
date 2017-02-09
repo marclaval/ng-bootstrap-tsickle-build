@@ -1,4 +1,4 @@
-import { Injector, Renderer, TemplateRef, ViewContainerRef, ComponentFactoryResolver } from '@angular/core/index';
+import { Injector, Renderer, TemplateRef, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import { NgbModalStack } from './modal-stack';
 import { NgbModalRef } from './modal-ref';
 export declare class NgbModalContainer {

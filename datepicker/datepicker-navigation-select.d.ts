@@ -1,4 +1,4 @@
-import { EventEmitter, OnChanges, SimpleChanges } from '@angular/core/index';
+import { EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { NgbDate } from './ngb-date';
 import { NgbDatepickerI18n } from './datepicker-i18n';
 import { NgbCalendar } from './ngb-calendar';

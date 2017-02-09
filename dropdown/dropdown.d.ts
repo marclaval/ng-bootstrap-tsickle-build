@@ -1,4 +1,4 @@
-import { EventEmitter, ElementRef } from '@angular/core/index';
+import { EventEmitter, ElementRef } from '@angular/core';
 import { NgbDropdownConfig } from './dropdown-config';
 /**
  * Transforms a node into a dropdown.

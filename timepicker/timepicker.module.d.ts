@@ -1,4 +1,4 @@
-import { ModuleWithProviders } from '@angular/core/index';
+import { ModuleWithProviders } from '@angular/core';
 export { NgbTimepicker } from './timepicker';
 export { NgbTimepickerConfig } from './timepicker-config';
 export { NgbTimeStruct } from './ngb-time-struct';

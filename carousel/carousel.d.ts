@@ -1,4 +1,4 @@
-import { TemplateRef, QueryList, OnDestroy, AfterContentChecked, OnInit } from '@angular/core/index';
+import { TemplateRef, QueryList, OnDestroy, AfterContentChecked, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from './carousel-config';
 /**
  * Represents an individual slide to be used within a carousel.

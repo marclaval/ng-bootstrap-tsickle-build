@@ -1,4 +1,4 @@
-import { EventEmitter, OnInit, OnDestroy, Injector, Renderer, ElementRef, TemplateRef, ViewContainerRef, ComponentFactoryResolver, NgZone } from '@angular/core/index';
+import { EventEmitter, OnInit, OnDestroy, Injector, Renderer, ElementRef, TemplateRef, ViewContainerRef, ComponentFactoryResolver, NgZone } from '@angular/core';
 import { NgbTooltipConfig } from './tooltip-config';
 export declare class NgbTooltipWindow {
     placement: 'top' | 'bottom' | 'left' | 'right';

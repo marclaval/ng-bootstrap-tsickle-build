@@ -1,5 +1,5 @@
-import { ElementRef, ViewContainerRef, Renderer, ComponentFactoryResolver, NgZone, TemplateRef, EventEmitter } from '@angular/core/index';
-import { ControlValueAccessor } from '@angular/forms/index';
+import { ElementRef, ViewContainerRef, Renderer, ComponentFactoryResolver, NgZone, TemplateRef, EventEmitter } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
 import { NgbDatepickerNavigateEvent } from './datepicker';
 import { DayTemplateContext } from './datepicker-day-template-context';
 import { NgbDateParserFormatter } from './ngb-date-parser-formatter';

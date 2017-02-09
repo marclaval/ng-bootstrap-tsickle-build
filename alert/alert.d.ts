@@ -1,4 +1,4 @@
-import { EventEmitter } from '@angular/core/index';
+import { EventEmitter } from '@angular/core';
 import { NgbAlertConfig } from './alert-config';
 /**
  * Alerts can be used to provide feedback messages.

@@ -1,4 +1,4 @@
-import { ModuleWithProviders } from '@angular/core/index';
+import { ModuleWithProviders } from '@angular/core';
 export { NgbDatepicker, NgbDatepickerNavigateEvent } from './datepicker';
 export { NgbInputDatepicker } from './datepicker-input';
 export { NgbDatepickerMonthView } from './datepicker-month-view';
